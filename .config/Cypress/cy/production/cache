@@ -1,0 +1,25 @@
+{
+  "PROJECT_PREFERENCES": {
+    "primeng": {
+      "lastBrowser": {
+        "name": "electron",
+        "channel": "stable"
+      }
+    },
+    "kinsale-material": {
+      "lastBrowser": {
+        "name": "chrome",
+        "channel": "stable"
+      },
+      "testingType": "component"
+    },
+    "dynamic-component-framework": {
+      "lastBrowser": {
+        "name": "chrome",
+        "channel": "stable"
+      },
+      "testingType": "component"
+    }
+  },
+  "PROJECTS": []
+}
