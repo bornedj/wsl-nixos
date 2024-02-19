@@ -153,7 +153,7 @@ export JVM_KEYSTORE="mavenstore"
 export MVN_MASTER="BlcA9G9MVWQyp02cIfO8rdvK"
 
 eval "$(zoxide init bash)"
-alias cd="z"
+# alias cd="z"
 # ifconfig eth0 10.243.201.76 netmask 255.255.255.255
 
 # Load Angular CLI autocompletion.
