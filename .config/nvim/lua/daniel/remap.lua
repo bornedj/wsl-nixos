@@ -29,13 +29,13 @@ vim.keymap.set("n", "Q", "<nop>")
 --tmux stuff
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.local/bin/tmux-sessionizer.sh<CR>")
 vim.keymap.set("n", "<leader>f", function()
-    -- vim.lsp.buf.format({formatting_options = {tabSize = 4}})
-    vim.lsp.buf.format({formatting_options = {tabSize = 2}})
+    vim.lsp.buf.format({formatting_options = {tabSize = 4}})
+    -- vim.lsp.buf.format({formatting_options = {tabSize = 2}})
 end)
 
 vim.keymap.set("v", "<leader>f", function()
-    -- vim.lsp.buf.format({formatting_options = {tabSize = 4}})
-    vim.lsp.buf.format({formatting_options = {tabSize = 2}})
+    vim.lsp.buf.format({formatting_options = {tabSize = 4}})
+    -- vim.lsp.buf.format({formatting_options = {tabSize = 2}})
 end)
 
 -- vim.keymap.set("n", "<a-j>", "<cmd>cnext<CR>zz")
