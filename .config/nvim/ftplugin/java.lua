@@ -95,7 +95,6 @@ config['on_attach'] = function ()
     -- vim.keymap.set('n', '<Leader>dch', "<cmd> Telescope dap commands<cr>")
 end
 
-
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)
