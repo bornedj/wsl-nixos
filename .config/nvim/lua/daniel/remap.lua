@@ -58,7 +58,7 @@ end)
 vim.keymap.set("n", "<leader>fe", function()
     local startingDir = vim.fn.getcwd()
     vim.cmd("cd %:h")
-    vim.cmd("!explorer.exe .")
+    vim.cmd("silent !explorer.exe .")
     vim.cmd(string.format("cd %s", startingDir))
 end)
 
