@@ -64,10 +64,7 @@ end)
 
 -- open windows git bash and cd into the dir of the current buffer
 vim.keymap.set("n", "<leader>gb", function()
-    local startingDir = vim.fn.getcwd()
-    vim.cmd("cd %:h")
-    vim.cmd("silent !/mnt/c/Program\\ Files/Git/git-bash.exe --cd=.")
-    vim.cmd(string.format("cd %s", startingDir))
+    vim.cmd(string.format("silent !/mnt/c/Program\\ Files/Git/git-bash.exe --cd=%s", vim.fn.getcwd()))
 end)
 
 
