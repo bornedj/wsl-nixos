@@ -23,7 +23,7 @@ return {
             'lua_ls',
             'angularls',
             'cssls',
-            'emmet-ls',
+            'emmet_ls',
             'jsonls',
             'html',
             -- 'pylsp',
