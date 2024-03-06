@@ -9,6 +9,7 @@ return {
         eob_lines = true, -- Hide the end-of-buffer lines
       },
     },
+    name = "onenord",
     config = function ()
         vim.cmd.colorscheme("onenord")
 

@@ -1,6 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    lazy = false,
     config = function ()
         require'nvim-treesitter.configs'.setup {
             ensured_installed = { "help", "javascript", "typescript", "rust", "c", "lua", "vimdoc"},
@@ -25,5 +26,5 @@ return {
                 mdx = 'jsx'
             }
         })
-    end
+    end,
 }

@@ -5,6 +5,7 @@ return {
         { 'neovim/nvim-lspconfig' },
         {
             'williamboman/mason.nvim',
+            lazy = false,
         },
         { 'williamboman/mason-lspconfig.nvim' },
         -- autocompletion
@@ -20,9 +21,9 @@ return {
             'eslint',
             'rust_analyzer',
             'lua_ls',
-            --'angularls',
-            'emmet_ls',
+            'angularls',
             'cssls',
+            'emmet-ls',
             'jsonls',
             'html',
             -- 'pylsp',
