@@ -30,5 +30,8 @@ return {
                 path = "~/obsidian/architecture",
             }
         },
+        daily_notes = {
+            folder = "daily"
+        },
     },
 }
