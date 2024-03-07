@@ -1,6 +1,6 @@
 return {
     "github/copilot.vim",
-    lazy = false,
+    lazy = true,
     keys = {
         {"<leader>cpe", function () vim.cmd(":Copilot enable") end},
         {"<leader>cpd", function () vim.cmd(":Copilot disable") end}
