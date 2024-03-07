@@ -16,9 +16,9 @@ return {
     {
         'mbbill/undotree',
         lazy = false,
-        keys = {
-            {"<leader>u",function () vim.cmd.UndotreeToggle end, desc = "Open undotree", mode = "n"}
-        }
+        config = function ()
+            vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+        end
     },
     'christoomey/vim-tmux-navigator',
     'mfussenegger/nvim-jdtls',
