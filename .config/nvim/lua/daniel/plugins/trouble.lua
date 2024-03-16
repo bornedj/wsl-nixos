@@ -10,7 +10,7 @@ return {
         { "<leader>xq", function() require("trouble").toggle("quickfix") end, mode = "n" },
         { "<leader>xl", function() require("trouble").toggle("loclist") end, mode = "n" },
         { "gR", function() require("trouble").toggle("lsp_references") end, mode = "n" },
-        { "<C-n>", function() require("trouble").next({skip_groups = true, jump = true}) end, mode = "n" },
-        { "<C-p>", function() require("trouble").previous({skip_groups = true, jump = true}) end, mode = "n" },
+        { "<M-n>", function() require("trouble").next({skip_groups = true, jump = true}) end, mode = "n" },
+        { "<M-p>", function() require("trouble").previous({skip_groups = true, jump = true}) end, mode = "n" },
     }
 }
