@@ -62,6 +62,16 @@ return {
             vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
         end)
 
+        require'lspconfig'.rust_analyzer.setup({
+            settings = {
+                cargo = {
+                    buildScripts = {
+                        enable = true
+                    }
+                }
+            }
+        })
+
         lsp.setup()
     end
 }
