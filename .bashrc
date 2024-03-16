@@ -142,9 +142,6 @@ EDITOR=/usr/local/bin/nvim
 
 export CHROME=/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe
 
-export DB_PASS="qHDp1eOU!kYBj&Mq"
-export DB_USER="DBORNE"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -152,13 +149,12 @@ export NVM_DIR="$HOME/.nvm"
 export JVM_KEYSTORE="mavenstore"
 export MVN_MASTER="BlcA9G9MVWQyp02cIfO8rdvK"
 
-eval "$(zoxide init bash)"
 alias cd="z"
-# ifconfig eth0 10.243.201.76 netmask 255.255.255.255
 
 alias cliphis="history | fzf | cut -d ' ' -f 2- | xclip"
 alias p="xclip -o"
 
 # Load Angular CLI autocompletion.
 # source <(ng completion script)
-# . "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
+eval "$(zoxide init bash)"
