@@ -154,6 +154,9 @@ alias cd="z"
 alias cliphis="history | fzf | cut -d ' ' -f 2- | xclip"
 alias p="xclip -o"
 
+# alias to count all open inotify watchers
+alias watchercount="lsof | rg inotify | wc -l"
+
 # Load Angular CLI autocompletion.
 # source <(ng completion script)
 . "$HOME/.cargo/env"
