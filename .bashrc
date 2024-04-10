@@ -151,7 +151,7 @@ export MVN_MASTER="BlcA9G9MVWQyp02cIfO8rdvK"
 
 alias cd="z"
 
-alias cliphis="history | fzf | cut -d ' ' -f 2- | xclip"
+alias cliphis="history | fzf | cut -d ' ' -f 2- | clip.exe"
 alias p="xclip -o"
 
 # alias to count all open inotify watchers
