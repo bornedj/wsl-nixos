@@ -156,6 +156,8 @@ alias p="xclip -o"
 
 # alias to count all open inotify watchers
 alias watchercount="lsof | rg inotify | wc -l"
+
+# cache cleans
 alias npmcc="npm cache clean -f"
 alias ngcc="ng cache clean"
 alias cc="npm cache clean -f && ng cache clean"
