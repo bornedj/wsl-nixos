@@ -22,6 +22,7 @@ return {
     },
     'christoomey/vim-tmux-navigator',
     'mfussenegger/nvim-jdtls',
+    "mfussenegger/nvim-dap",
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

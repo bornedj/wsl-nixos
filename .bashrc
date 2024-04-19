@@ -122,7 +122,6 @@ alias vim=nvim
 alias snvim="sudo -E -s /home/daniel/.local/bin/nvim"
 alias mvn=/usr/bin/apache-maven-3.8.8/mvn
 
-export NPM_PUBLISH_TOKEN="a0M1ajJRSnM6amlXQVFKTW1ZeTduWld2SXBsT3ZBVHRSLVc4emwxTDdVTFVuNGNVVXo2Mlo="
 # export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64/
 # export JAVA=$JAVA_HOME
 # export PATH=$PATH:~/.config/nvim:~/.config/tmux:$JAVA_HOME
@@ -131,7 +130,7 @@ export M2_HOME=/usr/lib/apache-maven-3.8.8
 export M2=$M2_HOME/bin
 export PATH=$PATH:$M2:/usr/bin/rg
 
-export GITLAB_TOKEN=glpat--N-8dtUdUr9XpC11Zkav
+export GITLAB_TOKEN=glpat-NFu-kUrXZMv1QKSaKEww
 export GITLAB_ON_PREM_TOKEN=JBqZNsbQeMJU9zpqnKwm
 
 export GATLING_HOME=/mnt/c/Users/daniel.borne/gatling/gatling-charts-highcharts-bundle-3.9.5
