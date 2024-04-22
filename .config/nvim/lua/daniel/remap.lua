@@ -48,7 +48,7 @@ end)
 -- windows default program. I.E. open html files in windows chrome
 vim.keymap.set("n", "<leader>fp", function()
     local startingDir = vim.fn.getcwd()
-    local explorer = string.format("!explorer.exe %s", vim.fn.expand('%:t'))
+    local explorer = string.format("silent !explorer.exe %s", vim.fn.expand('%:t'))
     vim.cmd("cd %:h")
     vim.cmd(explorer)
     vim.cmd(string.format("cd %s", startingDir))
