@@ -129,10 +129,6 @@ alias mvn=/usr/bin/apache-maven-3.8.8/mvn
 export M2_HOME=/usr/lib/apache-maven-3.8.8
 export M2=$M2_HOME/bin
 export PATH=$PATH:$M2:/usr/bin/rg
-
-export GITLAB_TOKEN=glpat-NFu-kUrXZMv1QKSaKEww
-export GITLAB_ON_PREM_TOKEN=JBqZNsbQeMJU9zpqnKwm
-
 export GATLING_HOME=/mnt/c/Users/daniel.borne/gatling/gatling-charts-highcharts-bundle-3.9.5
 export GATLING_RECORD=$GATLING_HOME"/bin/recorder.sh"
 export GATLING_GUI=$GATLING_HOME"/bin/gatling.sh"
@@ -144,9 +140,6 @@ export CHROME=/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export JVM_KEYSTORE="mavenstore"
-export MVN_MASTER="BlcA9G9MVWQyp02cIfO8rdvK"
 
 alias cd="z"
 
