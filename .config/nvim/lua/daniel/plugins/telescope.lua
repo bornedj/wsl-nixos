@@ -3,13 +3,23 @@ return {
     dependencies = {
         "plenary"
     },
-    opts = {
-        defaults = {
-            path_display = { "truncate" },
-        },
-    },
+    -- not sure why the below setup options are not being merged into the 
+    -- final spec. Need to look into this later.
+    -- opts = {
+    --     defaults = {
+    --         layout_strategy = 'center',
+    --         path_display = { "truncate" },
+    --     },
+    -- },
     config = function()
         local builtin = require('telescope.builtin')
+        -- remove once I've found how to implement through `opts`
+        require('telescope').setup {
+            defaults = {
+                layout_strategy = 'vertical',
+                path_display = { "truncate" },
+            },
+        }
         vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
         vim.keymap.set('n', '<leader>fh', '<cmd>Telescope find_files hidden=true<CR>')
         vim.keymap.set('n', '<C-p>', builtin.git_files, {})
