@@ -94,3 +94,6 @@ vim.keymap.set("n", "<leader>cfp", '<cmd>silent let @+ = expand("%:p")<CR>')
 
 -- copy current buffer file path to the system clipboard
 vim.keymap.set("n", "<leader>cfrp", '<cmd>silent let @+ = expand("%")<CR>')
+
+-- toggle spell check
+vim.keymap.set("n", "<leader>ts", '<cmd>silent set spell!<CR>')
