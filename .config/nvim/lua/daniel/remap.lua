@@ -32,7 +32,7 @@ vim.keymap.set("n", "<leader>f", function()
 end)
 
 vim.keymap.set("v", "<leader>f", function()
-    vim.lsp.buf.format()
+    vim.lsp.buf.format({tabSize = 4})
 end)
 
 vim.keymap.set("n", "]r", "<cmd>cnext<CR>zz")
