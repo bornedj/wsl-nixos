@@ -1,7 +1,7 @@
 return {
     'nvim-telescope/telescope.nvim',
     dependencies = {
-        "plenary"
+        "nvim-lua/plenary.nvim"
     },
     -- not sure why the below setup options are not being merged into the 
     -- final spec. Need to look into this later.
