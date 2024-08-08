@@ -1,1 +1,1 @@
-# wsl-dotfiles
+# wsl-nixos-configuration
