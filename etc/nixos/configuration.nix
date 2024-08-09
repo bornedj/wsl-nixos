@@ -8,20 +8,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  # environment.systemPackages = with pkgs; [
-  #   neovim
-  #   git
-  #   rustup
-  #   python3
-  #   nodejs
-  #   lua
-  #   tmux
-  #   zoxide
-  #   fzf
-  #   stow
-  #   curl
-  # ];
-
   nix.settings.experimental-features = ["nix-command" "flakes" ];
 
   # This value determines the NixOS release from which the default
