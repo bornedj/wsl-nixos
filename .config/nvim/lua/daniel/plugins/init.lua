@@ -17,7 +17,10 @@ return {
             vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
         end
     },
-    'christoomey/vim-tmux-navigator',
+    {
+        'christoomey/vim-tmux-navigator',
+        lazy = false,
+    },
     'mfussenegger/nvim-jdtls',
     "mfussenegger/nvim-dap",
     -- {
