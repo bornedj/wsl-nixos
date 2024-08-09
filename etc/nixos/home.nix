@@ -18,6 +18,7 @@
         clang-tools
         gcc
         cmake
+        ripgrep
     ];
     home.stateVersion =  "24.05";
 
