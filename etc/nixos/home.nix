@@ -17,9 +17,8 @@
         curl
         # clang tools specifically needed for treesitter
         clang-tools
-        gcc
-        cmake
         ripgrep
+        temurin-jre-bin
     ];
     home.stateVersion =  "24.05";
 
