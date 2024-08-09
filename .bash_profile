@@ -159,5 +159,5 @@ alias gen_doc="rm -rf docs/ && npm run doc"
 
 # Load Angular CLI autocompletion.
 # source <(ng completion script)
-. "$HOME/.cargo/env"
-eval "$(zoxide init bash)"
+# . "$HOME/.cargo/env"
+# eval "$(zoxide init bash)"
