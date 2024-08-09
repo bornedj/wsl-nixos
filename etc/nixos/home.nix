@@ -15,6 +15,7 @@
         fzf
         stow
         curl
+        # clang tools specifically needed for treesitter
         clang-tools
         gcc
         cmake
