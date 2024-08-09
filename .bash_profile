@@ -119,7 +119,7 @@ fi
 source /etc/environment
 
 alias vim=nvim
-alias snvim="sudo -E -s /home/daniel/.local/bin/nvim"
+alias snvim="sudo -Es /home/daniel/.local/bin/nvim"
 alias mvn=/usr/bin/apache-maven-3.8.8/mvn
 
 # export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64/
