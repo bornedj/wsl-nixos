@@ -17,6 +17,7 @@
         curl
         # clang tools specifically needed for treesitter
         clang-tools
+        libgcc
         ripgrep
         temurin-jre-bin
     ];
