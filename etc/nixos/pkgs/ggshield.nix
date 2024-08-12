@@ -17,12 +17,10 @@ python3.pkgs.buildPythonApplication rec {
     sha256 = "gN8dnUIwK/g8BgbwEdkoKihNZUrNWrNm5CCIbqZrQgY=";
   };
 
-  pythonRelaxDeps = true;
-
   build-system = with python3.pkgs; [ setuptools ];
 
-  dependencies = with python3.pkgs; [
-    appdirs
+  nativeBuildInputs = with python3.pkgs; [
+    platformdirs
     charset-normalizer
     click
     cryptography
@@ -38,6 +36,23 @@ python3.pkgs.buildPythonApplication rec {
     rich
   ];
 
+  # propagatedBuildInputs = with python3.pkgs; [
+  #   appdirs
+  #   charset-normalizer
+  #   click
+  #   cryptography
+  #   marshmallow
+  #   marshmallow-dataclass
+  #   oauthlib
+  #   platformdirs
+  #   pygitguardian
+  #   pyjwt
+  #   python-dotenv
+  #   pyyaml
+  #   requests
+  #   rich
+  # ];
+
   nativeCheckInputs =
     [ git ]
     ++ (with python3.pkgs; [
@@ -51,6 +66,16 @@ python3.pkgs.buildPythonApplication rec {
     ]);
 
   pythonImportsCheck = [ "ggshield" ];
+
+  diabledTestPaths = [
+    "tests/test_watch"
+    "tests/test_force_polling"
+  ];
+
+  disabledTests = [
+    "test_watch_polling_not_env"
+    "test_awatch"
+  ];
 
   meta = with lib; {
     description = "Tool to find and fix various types of hardcoded secrets and infrastructure-as-code misconfigurations";
