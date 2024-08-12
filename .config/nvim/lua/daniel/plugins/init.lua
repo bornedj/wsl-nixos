@@ -9,7 +9,6 @@ return {
         end
     },
     "neovim/nvim-lspconfig",
-    "folke/which-key.nvim",
     {
         'mbbill/undotree',
         lazy = false,
