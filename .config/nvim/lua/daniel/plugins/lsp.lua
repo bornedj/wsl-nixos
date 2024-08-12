@@ -26,9 +26,10 @@ return {
             'emmet_ls',
             'jsonls',
             'html',
-            -- 'pylsp',
             'pyright',
             'bashls',
+            "nil_ls",
+            "yamlls",
         })
 
         lsp.nvim_workspace()
