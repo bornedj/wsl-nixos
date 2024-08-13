@@ -50,23 +50,32 @@ let
             };
             doCheck = false;
         });
-        # pygitguardian = super.pygitguardian.overridePythonAttrs(old: rec {
-        #     version = "1.16.0";
-        #     build-system = [super.pdm-backend];
-        #     src = super.fetchPypi {
-        #         pname = "pygitguardian";
-        #         inherit version;
-        #         hash = "sha256-kffFRU/PfTN5RvU8NdA15JeSJL9F66he2C+dOTnJBP0=";
-        #     };
-        #     dependencies = let setuptools = pkgs.fetchFromGitHub {
-        #         version = "72.1.0";
-        #         owner = "pypa";
-        #         repo = "setuptools";
-        #         rev = "refs/tags/v${version}";
-        #         hash = "sha256-LXF3R9zfWylvihP2M8N94/IlgifwxUwKJFhtvcXEPB0=";
-        #     }; in [ setuptools ];
-        #     doCheck = false;
-        # });
+        pygitguardian = pkgs.python3.pkgs.pygitguardian.overridePythonAttrs(old: rec {
+            version = "1.16.0";
+            build-system = [super.pdm-backend];
+            src = super.fetchPypi {
+                pname = "pygitguardian";
+                inherit version;
+                hash = "sha256-kffFRU/PfTN5RvU8NdA15JeSJL9F66he2C+dOTnJBP0=";
+            };
+            # local_setuptools = pkgs.fetchFromGitHub {
+            #     version = "72.1.0";
+            #     owner = "pypa";
+            #     repo = "setuptools";
+            #     rev = "refs/tags/v${version}";
+            #     hash = "sha256-LXF3R9zfWylvihP2M8N94/IlgifwxUwKJFhtvcXEPB0=";
+            # };
+            # dependencies = let setuptools = pkgs.fetchFromGitHub {
+            #     version = "72.0.0";
+            #     owner = "pypa";
+            #     repo = "setuptools";
+            #     rev = "refs/tags/v${version}";
+            #     hash = "sha256-LXF3R9zfWylvihP2M8N94/IlgifwxUwKJFhtvcXEPB0=";
+            # }; in (old.dependencies or []) ++ [ setuptools ];
+            # dependencies = (old.dependencies or []) ++ [local_setuptools];
+            # propagatedBuildInputs = (old.propagatedBuildInputs or []) ++ [local_setuptools];
+            doCheck = false;
+        });
         pyjwt = super.pyjwt.overridePythonAttrs(old: rec {
             version = "2.6.0";
             src = super.fetchPypi {

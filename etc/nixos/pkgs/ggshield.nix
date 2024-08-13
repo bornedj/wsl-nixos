@@ -9,6 +9,7 @@ python3.pkgs.buildPythonApplication rec {
   pname = "ggshield";
   version = "1.30.2";
   pyproject = true;
+  doCheck = false;
 
   src = fetchFromGitHub {
     owner = "GitGuardian";
