@@ -19,8 +19,7 @@ python3.pkgs.buildPythonApplication rec {
 
   build-system = with python3.pkgs; [ setuptools ];
 
-  nativeBuildInputs = with python3.pkgs; [
-    platformdirs
+  propagatedBuildInputs = with python3.pkgs; [
     charset-normalizer
     click
     cryptography
@@ -36,22 +35,9 @@ python3.pkgs.buildPythonApplication rec {
     rich
   ];
 
-  # propagatedBuildInputs = with python3.pkgs; [
-  #   appdirs
-  #   charset-normalizer
-  #   click
-  #   cryptography
-  #   marshmallow
-  #   marshmallow-dataclass
-  #   oauthlib
-  #   platformdirs
-  #   pygitguardian
-  #   pyjwt
-  #   python-dotenv
-  #   pyyaml
-  #   requests
-  #   rich
-  # ];
+  depedencies = with python3.pkgs; [
+    platformdirs
+  ];
 
   nativeCheckInputs =
     [ git ]
@@ -66,16 +52,6 @@ python3.pkgs.buildPythonApplication rec {
     ]);
 
   pythonImportsCheck = [ "ggshield" ];
-
-  diabledTestPaths = [
-    "tests/test_watch"
-    "tests/test_force_polling"
-  ];
-
-  disabledTests = [
-    "test_watch_polling_not_env"
-    "test_awatch"
-  ];
 
   meta = with lib; {
     description = "Tool to find and fix various types of hardcoded secrets and infrastructure-as-code misconfigurations";
