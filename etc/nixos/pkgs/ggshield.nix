@@ -54,6 +54,8 @@ python3.pkgs.buildPythonApplication rec {
 
   pythonImportsCheck = [ "ggshield" ];
 
+  pythonRelaxDeps = true;
+
   meta = with lib; {
     description = "Tool to find and fix various types of hardcoded secrets and infrastructure-as-code misconfigurations";
     homepage = "https://github.com/GitGuardian/ggshield";

@@ -50,30 +50,33 @@ let
             };
             doCheck = false;
         });
-        pygitguardian = pkgs.python3.pkgs.pygitguardian.overridePythonAttrs(old: rec {
+        pygitguardian = super.pygitguardian.overridePythonAttrs(old: rec {
             version = "1.16.0";
             build-system = [super.pdm-backend];
+            pythonRelaxDeps = true;
             src = super.fetchPypi {
                 pname = "pygitguardian";
                 inherit version;
                 hash = "sha256-kffFRU/PfTN5RvU8NdA15JeSJL9F66he2C+dOTnJBP0=";
             };
-            # local_setuptools = pkgs.fetchFromGitHub {
-            #     version = "72.1.0";
-            #     owner = "pypa";
-            #     repo = "setuptools";
-            #     rev = "refs/tags/v${version}";
-            #     hash = "sha256-LXF3R9zfWylvihP2M8N94/IlgifwxUwKJFhtvcXEPB0=";
-            # };
-            # dependencies = let setuptools = pkgs.fetchFromGitHub {
-            #     version = "72.0.0";
-            #     owner = "pypa";
-            #     repo = "setuptools";
-            #     rev = "refs/tags/v${version}";
-            #     hash = "sha256-LXF3R9zfWylvihP2M8N94/IlgifwxUwKJFhtvcXEPB0=";
-            # }; in (old.dependencies or []) ++ [ setuptools ];
-            # dependencies = (old.dependencies or []) ++ [local_setuptools];
-            # propagatedBuildInputs = (old.propagatedBuildInputs or []) ++ [local_setuptools];
+            setuptools = super.setuptools.overridePythonAttrs(old: rec {
+                version = "72.2.0";
+                pname = "setuptools";
+                # format = "pyproject";
+                src = super.fetchPypi {
+                    # owner = "pypa";
+                    # repo = "setuptools";
+                    # rev = "refs/tags/v${version}";
+                    hash = "sha256-gKrL9jNwTpyL+h2Z+l3U3FlXPvz55AQsE9O875GsLvk=";
+                    inherit version;
+                    inherit pname;
+                };
+                patches = [];
+                doCheck = false;
+            });
+            dependencies = (old.dependencies or []) ++ [ setuptools ];
+            propagatedBuildInputs = (old.propagatedBuildInputs or []) ++ [ setuptools ];
+            pythonImportsCheck = ["pygitguardian"];
             doCheck = false;
         });
         pyjwt = super.pyjwt.overridePythonAttrs(old: rec {
