@@ -4,7 +4,6 @@
     home.username = "nixos";
     home.homeDirectory = "/home/nixos";
     home.packages = with pkgs; [
-        neovim
         git
         rustup
         python3
@@ -16,8 +15,8 @@
         stow
         curl
         # clang tools specifically needed for treesitter
+        gcc
         clang-tools
-        libgcc
         ripgrep
         temurin-jre-bin
     ];
@@ -25,7 +24,7 @@
 
     programs.home-manager.enable = true;
     
-    # git configuration
+    # home git configuration
     programs.git = {
         enable = true;
         userName = "daniel.borne";
@@ -35,5 +34,12 @@
                 symlinks = false;
             };
         };
+    };
+    # home nvim configuration
+    programs.neovim = {
+        enable = true;
+        defaultEditor = true;
+        viAlias = true;
+        vimAlias = true;
     };
 }
