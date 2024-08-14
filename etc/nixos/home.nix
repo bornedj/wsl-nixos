@@ -28,5 +28,12 @@
     # git configuration
     programs.git = {
         enable = true;
+        userName = "daniel.borne";
+        userEmail = "daniel.borne@kinsaleins.com";
+        extraConfig = {
+            core = {
+                symlinks = false;
+            };
+        };
     };
 }
