@@ -3,8 +3,8 @@ return {
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
     event = {
-        "BufReadPre /home/daniel/obsidian/**.md",
-        "BufNewFile /home/daniel/obsidian/**.md",
+        "BufReadPre /home/nixos/obsidian/**.md",
+        "BufNewFile /home/nixos/obsidian/**.md",
     },
     -- ft = "markdown",
     dependencies = {

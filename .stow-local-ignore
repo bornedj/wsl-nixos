@@ -1,3 +1,4 @@
 .git
 scripts
-flake.nix
+etc/
+README.md
