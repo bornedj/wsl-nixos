@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
     home.username = "nixos";
@@ -19,6 +19,7 @@
         clang-tools
         ripgrep
         temurin-jre-bin
+        age
     ];
     home.stateVersion =  "24.05";
 
@@ -35,6 +36,7 @@
             };
         };
     };
+
     # home nvim configuration
     programs.neovim = {
         enable = true;
@@ -42,4 +44,13 @@
         viAlias = true;
         vimAlias = true;
     };
+
+    # sops configuration
+    # sops = {
+    #     age.keyFile = "/home/nixos/dotfiles/etc/nixos/sops/age/key.txt";
+    #     defaultSopsFile = ./secrets.json;
+    #     secrets.test = {
+    #         path = "%r/test.text";
+    #     };
+    # };
 }

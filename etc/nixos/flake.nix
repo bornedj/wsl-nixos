@@ -6,6 +6,7 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, ... }: {
@@ -24,6 +25,9 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true; 
               home-manager.users.nixos = import ./home.nix; 
+              home-manager.sharedModules = [
+                inputs.sops-nix.homeManagerModules.sops
+              ];
           }
         ];
       };
