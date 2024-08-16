@@ -116,8 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source /etc/environment
-
 alias vim=nvim
 alias snvim="sudo -Es /home/daniel/.local/bin/nvim"
 alias mvn=/usr/bin/apache-maven-3.8.8/mvn
