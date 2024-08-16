@@ -20,6 +20,8 @@
         ripgrep
         temurin-jre-bin
         age
+        # attempting to enable first to ensure its set as default
+        neovim
     ];
     home.stateVersion =  "24.05";
 
@@ -39,7 +41,6 @@
 
     # home nvim configuration
     programs.neovim = {
-        enable = true;
         defaultEditor = true;
         viAlias = true;
         vimAlias = true;
