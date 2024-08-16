@@ -44,6 +44,7 @@
         viAlias = true;
         vimAlias = true;
         vimdiffAlias = true;
+        withNodeJs = true;
     };
 
     # sops configuration
