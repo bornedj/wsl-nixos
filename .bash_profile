@@ -119,6 +119,7 @@ fi
 alias snvim="sudo -Es /home/daniel/.local/bin/nvim"
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
+export VISUAL="nvim"
 
 export M2_HOME=/usr/lib/apache-maven-3.8.8
 export M2=$M2_HOME/bin
