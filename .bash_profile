@@ -133,8 +133,6 @@ export GATLING_HOME=/mnt/c/Users/daniel.borne/gatling/gatling-charts-highcharts-
 export GATLING_RECORD=$GATLING_HOME"/bin/recorder.sh"
 export GATLING_GUI=$GATLING_HOME"/bin/gatling.sh"
 
-EDITOR=/usr/local/bin/nvim
-
 export CHROME=/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe
 
 export NVM_DIR="$HOME/.nvm"
