@@ -116,13 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias vim=nvim
 alias snvim="sudo -Es /home/daniel/.local/bin/nvim"
-alias mvn=/usr/bin/apache-maven-3.8.8/mvn
-
-# export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64/
-# export JAVA=$JAVA_HOME
-# export PATH=$PATH:~/.config/nvim:~/.config/tmux:$JAVA_HOME
+export EDITOR="nvim"
+export SUDO_EDITOR="nvim"
 
 export M2_HOME=/usr/lib/apache-maven-3.8.8
 export M2=$M2_HOME/bin
