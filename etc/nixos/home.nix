@@ -18,7 +18,7 @@
         gcc
         clang-tools
         ripgrep
-        temurin-jre-bin
+        jdk
         age
         jdt-language-server
     ];
