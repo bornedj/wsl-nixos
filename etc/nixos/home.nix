@@ -20,6 +20,7 @@
         ripgrep
         temurin-jre-bin
         age
+        jdt-language-server
     ];
     home.stateVersion =  "24.05";
 
@@ -45,6 +46,11 @@
         vimAlias = true;
         vimdiffAlias = true;
         withNodeJs = true;
+    };
+
+    # browser configuration
+    programs.firefox = {
+        enable = true;
     };
 
     # sops configuration
