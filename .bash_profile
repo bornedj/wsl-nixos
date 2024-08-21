@@ -121,12 +121,13 @@ export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
 export VISUAL="nvim"
 
-export M2_HOME=/usr/lib/apache-maven-3.8.8
-export M2=$M2_HOME/bin
+export M2_HOME=~/.m2/
+export M2="$(which mvn)"
 export PATH=$PATH:$M2:/usr/bin/rg
 export GATLING_HOME=/mnt/c/Users/daniel.borne/gatling/gatling-charts-highcharts-bundle-3.9.5
 export GATLING_RECORD=$GATLING_HOME"/bin/recorder.sh"
 export GATLING_GUI=$GATLING_HOME"/bin/gatling.sh"
+export JAVA_HOME="/etc/profiles/per-user/nixos/lib/openjdk"
 
 export CHROME=/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe
 
