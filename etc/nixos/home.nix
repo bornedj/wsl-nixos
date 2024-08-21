@@ -5,22 +5,25 @@
     home.homeDirectory = "/home/nixos";
     home.packages = with pkgs; [
         git
+        # rust 
         rustup
+        zoxide
+        ripgrep
         python3
         nodejs
         lua
         tmux
-        zoxide
         fzf
         stow
         curl
         # clang tools specifically needed for treesitter
         gcc
         clang-tools
-        ripgrep
-        jdk
         age
+        # java
         jdt-language-server
+        jdk
+        maven
     ];
     home.stateVersion =  "24.05";
 
