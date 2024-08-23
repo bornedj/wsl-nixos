@@ -24,6 +24,8 @@
         jdt-language-server
         jdk
         maven
+        jq
+        yq
     ];
     home.stateVersion =  "24.05";
 
