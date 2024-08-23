@@ -123,12 +123,18 @@ export VISUAL="nvim"
 
 export M2_HOME=~/.m2/
 export M2="$(which mvn)"
-export PATH=$PATH:$M2:/usr/bin/rg
+export PATH=$PATH:$M2:~/dotfiles/etc/nixos/pkgs/result/bin/ggshield
 export GATLING_HOME=/mnt/c/Users/daniel.borne/gatling/gatling-charts-highcharts-bundle-3.9.5
 export GATLING_RECORD=$GATLING_HOME"/bin/recorder.sh"
 export GATLING_GUI=$GATLING_HOME"/bin/gatling.sh"
 export JAVA_HOME="/etc/profiles/per-user/nixos/lib/openjdk"
 
+export JVM_KEYSTORE="mavenstore"
+export MVN_MASTER="{w4Yyq/DcVAUHBG58XeNLxHCCoVUGNXBz/GYrTjSVTObHc0iUwq+kd5o5Ht6ef4Kk}"
+export MVN_USER="PerisB4n4n4#01"
+export GITLAB_TOKEN=glpat-NFu-kUrXZMv1QKSaKEww
+export GITLAB_ON_PREM_TOKEN=JBqZNsbQeMJU9zpqnKwm
+export NPM_PUBLISH_TOKEN=ZnQ4bm8wWFk6OHBCYzJOTHVDUTZxeURuWm5yWDR2ZmNIWThuYko2cklwa1VGUVU4eGV3cUM=
 export CHROME=/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe
 
 export NVM_DIR="$HOME/.nvm"
