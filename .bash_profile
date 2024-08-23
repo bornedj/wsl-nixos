@@ -123,7 +123,7 @@ export VISUAL="nvim"
 
 export M2_HOME=~/.m2/
 export M2="$(which mvn)"
-export PATH=$PATH:$M2:/usr/bin/rg
+export PATH=$PATH:$M2:~/dotfiles/etc/nixos/pkgs/result/bin/ggshield
 export GATLING_HOME=/mnt/c/Users/daniel.borne/gatling/gatling-charts-highcharts-bundle-3.9.5
 export GATLING_RECORD=$GATLING_HOME"/bin/recorder.sh"
 export GATLING_GUI=$GATLING_HOME"/bin/gatling.sh"
