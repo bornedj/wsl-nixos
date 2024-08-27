@@ -116,24 +116,18 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source /etc/environment
-
-alias vim=nvim
 alias snvim="sudo -Es /home/daniel/.local/bin/nvim"
-alias mvn=/usr/bin/apache-maven-3.8.8/mvn
+export EDITOR="nvim"
+export SUDO_EDITOR="nvim"
+export VISUAL="nvim"
 
-# export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64/
-# export JAVA=$JAVA_HOME
-# export PATH=$PATH:~/.config/nvim:~/.config/tmux:$JAVA_HOME
-
-export M2_HOME=/usr/lib/apache-maven-3.8.8
-export M2=$M2_HOME/bin
-export PATH=$PATH:$M2:/usr/bin/rg
+export M2_HOME=~/.m2/
+export M2="$(which mvn)"
+export PATH=$PATH:$M2:~/dotfiles/etc/nixos/pkgs/result/bin/ggshield
 export GATLING_HOME=/mnt/c/Users/daniel.borne/gatling/gatling-charts-highcharts-bundle-3.9.5
 export GATLING_RECORD=$GATLING_HOME"/bin/recorder.sh"
 export GATLING_GUI=$GATLING_HOME"/bin/gatling.sh"
-
-EDITOR=/usr/local/bin/nvim
+export JAVA_HOME="/etc/profiles/per-user/nixos/lib/openjdk"
 
 export CHROME=/mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe
 

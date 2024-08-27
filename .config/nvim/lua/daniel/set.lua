@@ -4,7 +4,7 @@ vim.opt.timeoutlen = 2000
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
--- indentationk
+-- indentation
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4

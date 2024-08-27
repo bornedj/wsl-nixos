@@ -30,6 +30,7 @@ return {
             'bashls',
             "nil_ls",
             "yamlls",
+            "dockerls",
         })
 
         lsp.nvim_workspace()

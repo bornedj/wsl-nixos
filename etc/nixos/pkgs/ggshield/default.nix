@@ -1,7 +1,10 @@
 # default.nix
 let
-  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-24.05";
-  pkgs = import nixpkgs { config = {}; overlays = []; };
+  nixpkgs = fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/tarball/nixos-24.05";
+      sha256 = "0q96nxw7jg9l9zlpa3wkma5xzmgkdnnajapwhgb2fk2ll224rgs1";
+  };
+  pkgs = import nixpkgs { config = {}; overlays = []; system = "x86_64-linux"; };
 
   python3 = let 
     packageOverrides = self: super: {
