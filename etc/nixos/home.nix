@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let 
+    ggshieldOverrides = import pkgs/ggshield;
+in
 {
     home.username = "nixos";
     home.homeDirectory = "/home/nixos";
@@ -26,10 +29,12 @@
         maven
         jq
         yq
+        ggshieldOverrides.ggshield
     ];
     home.stateVersion =  "24.05";
 
     programs.home-manager.enable = true;
+
     
     # home git configuration
     programs.git = {
