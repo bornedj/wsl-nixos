@@ -67,9 +67,6 @@ let
                 pname = "setuptools";
                 # format = "pyproject";
                 src = super.fetchPypi {
-                    # owner = "pypa";
-                    # repo = "setuptools";
-                    # rev = "refs/tags/v${version}";
                     hash = "sha256-gKrL9jNwTpyL+h2Z+l3U3FlXPvz55AQsE9O875GsLvk=";
                     inherit version;
                     inherit pname;
