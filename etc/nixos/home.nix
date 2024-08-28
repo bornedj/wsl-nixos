@@ -29,6 +29,7 @@ in
         maven
         jq
         yq
+        tree
         ggshieldOverrides.ggshield
     ];
     home.stateVersion =  "24.05";
