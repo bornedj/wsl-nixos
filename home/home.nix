@@ -75,7 +75,7 @@ in
         withNodeJs = true;
 
         extraLuaConfig = ''
-            ${builtins.readFile ./nvim/init.lua}
+            ${builtins.readFile ./programs/nvim/init.lua}
         '';
 
         plugins = with pkgs.vimPlugins; [
