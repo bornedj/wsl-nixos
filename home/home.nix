@@ -117,10 +117,10 @@ in
                 config = toLuaFile ./programs/nvim/plugins/harpoon.lua;
             }
             # TODO: look into replacing lsp zero and install language servers myself
-            {
-                plugin = lsp-zero-nvim;
-                config = toLuaFile ./programs/nvim/plugins/lsp.lua;
-            }
+            # {
+            #     plugin = lsp-zero-nvim;
+            #     config = toLuaFile ./programs/nvim/plugins/lsp.lua;
+            # }
             {
                 plugin = obsidian-nvim;
                 config = toLuaFile ./programs/nvim/plugins/obsidian.lua;
