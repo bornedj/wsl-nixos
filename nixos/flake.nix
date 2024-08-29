@@ -7,6 +7,12 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
+
+    # neovim plugins not found under pkgs.vimPlugins
+    plugins-fugitive.url = "github:tpope/vim-fugitive";
+    plugins-fugitive.flake = false;
+    plugin-nvim-web-devicons.url = "github:nvim-tree/nvim-web-devicons";
+    plugin-nvim-web-devicons.flake = false;
   };
 
   outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, ... }: {
@@ -28,8 +34,10 @@
               home-manager.sharedModules = [
                 inputs.sops-nix.homeManagerModules.sops
               ];
+              home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
+
       };
     };
   };
