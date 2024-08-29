@@ -79,8 +79,8 @@ in
         withNodeJs = true;
 
         extraLuaConfig = ''
-            require(remap.lua)
-            require(set.lua)
+            ${builtins.readFile ./programs/nvim/set.lua}
+            ${builtins.readFile ./programs/nvim/remap.lua}
         '';
 
         plugins = with pkgs.vimPlugins; [
@@ -143,6 +143,11 @@ in
             }
         ];
     };
+
+    # home.file."./.config/nvim/" = {
+    #     source = ./programs/nvim;
+    #     recursive = true;
+    # };
 
     # browser configuration
     programs.firefox = {
