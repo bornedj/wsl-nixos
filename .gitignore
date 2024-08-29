@@ -1,4 +1,4 @@
 **/keys.txt
 home/programs/tmux/plugins/
-home/pkgs/**/result/
-home/pkgs/**/result
+home/**/result/
+home/**/result
