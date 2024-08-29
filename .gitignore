@@ -2,3 +2,4 @@
 home/programs/tmux/plugins/
 home/**/result/
 home/**/result
+.config/nvim/init.lua
