@@ -1,1 +1,1 @@
-require("daniel")
+/nix/store/1svcifa6qzjfaivdcnjym9zxi2694xfc-home-manager-files/.config/nvim/init.lua

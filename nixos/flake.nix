@@ -16,6 +16,9 @@
   };
 
   outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, ... }: {
+    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+        "copilot.vim"
+    ];
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -34,10 +37,9 @@
               home-manager.sharedModules = [
                 inputs.sops-nix.homeManagerModules.sops
               ];
-              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.extraSpecialArgs = { inherit inputs;  };
           }
         ];
-
       };
     };
   };
