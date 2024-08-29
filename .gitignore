@@ -1,4 +1,3 @@
-etc/nixos/pkgs/**/result
-etc/nixos/pkgs/**/result/
 **/keys.txt
 home/programs/tmux/plugins/
+home/pkgs/**/result/
