@@ -1,2 +1,2 @@
-require("mason").seutp({})
-require("mason-lspconfig").seutp({})
+require("mason").setup({})
+require("mason-lspconfig").setup({})
