@@ -1,5 +1,5 @@
 require("which-key").setup {
-    settings = {
+    defaults = {
         triggers = {
         }
     }
