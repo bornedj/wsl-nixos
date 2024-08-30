@@ -97,6 +97,7 @@ in
             nvim-cmp
             nvim-lspconfig
             mason-nvim
+            mason-lspconfg-nvim
             {
                 plugin = onenord-nvim;
                 config = toLuaFile ./programs/nvim/plugins/colors.lua;
@@ -158,11 +159,6 @@ in
                 ]));
                 config = toLuaFile ./programs/nvim/plugins/treesitter.lua;
             }
-            {
-                plugin = mason-lspconfig-nvim;
-                config = toLuaFile ./programs/nvim/plugins/mason-lspconfig.lua;
-            }
-            
         ];
     };
 
