@@ -172,11 +172,6 @@ in
         '';
     };
 
-    # home.file."./.config/nvim/" = {
-    #     source = ./programs/nvim;
-    #     recursive = true;
-    # };
-
     # browser configuration
     programs.firefox = {
         enable = true;
