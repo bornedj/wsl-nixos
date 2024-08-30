@@ -1,4 +1,4 @@
-{ pkgs, inputs, allowed-unfree-packages, ... }:
+{ pkgs, inputs, ... }:
 
 let 
     ggshieldOverrides = import pkgs/ggshield;
@@ -10,12 +10,12 @@ in
                 vimPlugins = prev.vimPlugins // {
                     own-fugitive = prev.vimUtils.buildVimPlugin {
                         name = "fugitive";
-                        src = inputs.plugin-fugitive;
+                        src = inputs.plugins-fugitive;
                     };
 
                     own-nvim-web-devicons = prev.vimUtils.buildVimPlugin {
                         name = "nvim-web-devicons";
-                        src = inputs.plugin-nvim-web-devicons;
+                        src = inputs.plugins-nvim-web-devicons;
                     };
                 };
             })
@@ -33,7 +33,6 @@ in
         python3
         nodejs
         lua
-        tmux
         fzf
         stow
         curl
@@ -151,6 +150,26 @@ in
                 config = toLuaFile ./programs/nvim/plugins/which-key.lua;
             }
         ];
+    };
+
+    programs.tmux = {
+        enable = true;
+        escapeTime = 300;
+        prefix = "C-a";
+        keyMode = "vi";
+        mouse = true;
+        clock24 = true;
+
+        plugins = with pkgs.tmuxPlugins; [
+            vim-tmux-navigator
+            resurrect
+            continuum
+            nord
+        ];
+
+        extraConfig = ''
+            ${builtins.readFile ./programs/tmux/tmux.conf}
+        '';
     };
 
     # home.file."./.config/nvim/" = {

@@ -138,22 +138,6 @@
         "type": "github"
       }
     },
-    "plugin-nvim-web-devicons": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1722734411,
-        "narHash": "sha256-TeWMlfNTA5+tiPq6D2TVWjdfJVr3FOwpqUDU8kfFZ8E=",
-        "owner": "nvim-tree",
-        "repo": "nvim-web-devicons",
-        "rev": "3722e3d1fb5fe1896a104eb489e8f8651260b520",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-tree",
-        "repo": "nvim-web-devicons",
-        "type": "github"
-      }
-    },
     "plugins-fugitive": {
       "flake": false,
       "locked": {
@@ -170,13 +154,29 @@
         "type": "github"
       }
     },
+    "plugins-nvim-web-devicons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722734411,
+        "narHash": "sha256-TeWMlfNTA5+tiPq6D2TVWjdfJVr3FOwpqUDU8kfFZ8E=",
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
+        "rev": "3722e3d1fb5fe1896a104eb489e8f8651260b520",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
-        "plugin-nvim-web-devicons": "plugin-nvim-web-devicons",
         "plugins-fugitive": "plugins-fugitive",
+        "plugins-nvim-web-devicons": "plugins-nvim-web-devicons",
         "sops-nix": "sops-nix"
       }
     },

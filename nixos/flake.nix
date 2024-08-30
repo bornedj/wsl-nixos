@@ -11,14 +11,11 @@
     # neovim plugins not found under pkgs.vimPlugins
     plugins-fugitive.url = "github:tpope/vim-fugitive";
     plugins-fugitive.flake = false;
-    plugin-nvim-web-devicons.url = "github:nvim-tree/nvim-web-devicons";
-    plugin-nvim-web-devicons.flake = false;
+    plugins-nvim-web-devicons.url = "github:nvim-tree/nvim-web-devicons";
+    plugins-nvim-web-devicons.flake = false;
   };
 
   outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, ... }: {
-    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-        "copilot.vim"
-    ];
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
