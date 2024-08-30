@@ -6,7 +6,7 @@ vim.fn.mkdir(parser_install_dir, "p")
 vim.opt.runtimepath:append(parser_install_dir)
 
 require('nvim-treesitter.configs').setup({
-    ensure_installed = {},
+    ensure_installed = { "help", "javascript", "typescript", "rust", "c", "lua", "vimdoc" },
     sync_install = false,
     auto_install = true,
     highlight = {
