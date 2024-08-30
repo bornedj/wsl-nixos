@@ -30,10 +30,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-Space>'] = cmp.mapping.complete(),
 })
 
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
-})
-
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
