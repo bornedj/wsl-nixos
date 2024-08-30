@@ -95,9 +95,10 @@ in
             nvim-dap
             markdown-preview-nvim
             nvim-cmp
+            cmp-nvim-lsp
             nvim-lspconfig
             mason-nvim
-            mason-lspconfg-nvim
+            mason-lspconfig-nvim
             {
                 plugin = onenord-nvim;
                 config = toLuaFile ./programs/nvim/plugins/colors.lua;
