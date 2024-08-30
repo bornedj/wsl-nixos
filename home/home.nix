@@ -84,6 +84,11 @@ in
         '';
 
         plugins = with pkgs.vimPlugins; [
+            {
+                # managing parsers itself, there's an open issue around doing it with nix
+                plugin = nvim-treesitter;
+                config = toLuaFile ./programs/nvim/plugins/treesitter.lua;
+            }
             plenary-nvim
             trouble-nvim
             {
@@ -144,21 +149,6 @@ in
             {
                 plugin = which-key-nvim;
                 config = toLuaFile ./programs/nvim/plugins/which-key.lua;
-            }
-            {
-                plugin = (nvim-treesitter.withPlugins (p: [
-                    p.tree-sitter-java
-                    p.tree-sitter-typescript
-                    p.tree-sitter-rust
-                    p.tree-sitter-lua
-                    p.tree-sitter-bash
-                    p.tree-sitter-javascript
-                    p.tree-sitter-nix
-                    p.tree-sitter-c
-                    p.tree-sitter-vim
-                    p.tree-sitter-python
-                ]));
-                config = toLuaFile ./programs/nvim/plugins/treesitter.lua;
             }
         ];
     };
