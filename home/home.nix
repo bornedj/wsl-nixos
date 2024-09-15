@@ -112,11 +112,11 @@ in
                 plugin = comment-nvim;
                 config = builtins.readFile ./programs/nvim/plugins/comment.lua;
             }
-            # commenting out until I figure out how to build it without a free license
-            # {
-            #     plugin = copilot-vim;
-            #     config = toLuaFile ./programs/nvim/plugins/copilot.lua;
-            # }
+            {
+                type = "lua";
+                plugin = copilot-vim;
+                config = builtins.readFile ./programs/nvim/plugins/copilot.lua;
+            }
             {
                 type = "lua";
                 plugin = fugitive;
