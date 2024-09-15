@@ -1,4 +1,4 @@
-require("comment").setup({})
+require("Comment").setup({})
 vim.keymap.set("n", "<leader>/", function()
     require("Comment.api").toggle.linewise.current()
 end)

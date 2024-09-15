@@ -66,10 +66,7 @@ in
     };
 
     # home nvim configuration
-    programs.neovim = let 
-        toLua = str:  "lua << EOF\n${str}\nEOF\n";
-        toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-    in {
+    programs.neovim = {
         enable = true;
         defaultEditor = true;
         viAlias = true;
@@ -85,14 +82,16 @@ in
         plugins = with pkgs.vimPlugins; [
             {
                 # managing parsers itself, there's an open issue around doing it with nix
+                type = "lua";
                 plugin = nvim-treesitter;
-                config = toLuaFile ./programs/nvim/plugins/treesitter.lua;
+                config = builtins.readFile ./programs/nvim/plugins/treesitter.lua;
             }
             plenary-nvim
             trouble-nvim
             {
+                type = "lua";
                 plugin = undotree;
-                config = toLua ''vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)'';
+                config = ''vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)'';
             }
             vim-tmux-navigator
             nvim-jdtls
@@ -104,50 +103,60 @@ in
             mason-nvim
             mason-lspconfig-nvim
             {
+                type = "lua";
                 plugin = onenord-nvim;
-                config = toLuaFile ./programs/nvim/plugins/colors.lua;
+                config = builtins.readFile ./programs/nvim/plugins/colors.lua;
             }
             {
+                type = "lua";
                 plugin = comment-nvim;
-                config = toLuaFile ./programs/nvim/plugins/comment.lua;
+                config = builtins.readFile ./programs/nvim/plugins/comment.lua;
             }
             # commenting out until I figure out how to build it without a free license
+            # {
+            #     plugin = copilot-vim;
+            #     config = toLuaFile ./programs/nvim/plugins/copilot.lua;
+            # }
             {
-                plugin = copilot-vim;
-                config = toLuaFile ./programs/nvim/plugins/copilot.lua;
-            }
-            {
+                type = "lua";
                 plugin = fugitive;
-                config = toLuaFile ./programs/nvim/plugins/fugitive.lua;
+                config = builtins.readFile ./programs/nvim/plugins/fugitive.lua;
             }
             {
+                type = "lua";
                 plugin = harpoon;
-                config = toLuaFile ./programs/nvim/plugins/harpoon.lua;
+                config = builtins.readFile ./programs/nvim/plugins/harpoon.lua;
             }
             # TODO: look into replacing lsp zero and install language servers myself
             {
+                type = "lua";
                 plugin = lsp-zero-nvim;
-                config = toLuaFile ./programs/nvim/plugins/lsp.lua;
+                config = builtins.readFile ./programs/nvim/plugins/lsp.lua;
             }
             {
+                type = "lua";
                 plugin = obsidian-nvim;
-                config = toLuaFile ./programs/nvim/plugins/obsidian.lua;
+                config = builtins.readFile ./programs/nvim/plugins/obsidian.lua;
             }
             {
+                type = "lua";
                 plugin = telescope-nvim;
-                config = toLuaFile ./programs/nvim/plugins/telescope.lua;
+                config = builtins.readFile ./programs/nvim/plugins/telescope.lua;
             }
             {
+                type = "lua";
                 plugin = trouble-nvim;
-                config = toLuaFile ./programs/nvim/plugins/trouble.lua;
+                config = builtins.readFile ./programs/nvim/plugins/trouble.lua;
             }
             {
+                type = "lua";
                 plugin = nvim-web-devicons;
-                config = toLuaFile ./programs/nvim/plugins/web-devicons.lua;
+                config = builtins.readFile ./programs/nvim/plugins/web-devicons.lua;
             }
             {
+                type = "lua";
                 plugin = which-key-nvim;
-                config = toLuaFile ./programs/nvim/plugins/which-key.lua;
+                config = builtins.readFile ./programs/nvim/plugins/which-key.lua;
             }
         ];
     };
