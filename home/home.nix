@@ -82,10 +82,13 @@ in
         extraPackages = with pkgs; [
             nodePackages.typescript-language-server
             nodePackages.vscode-langservers-extracted
-            rust-analyzer
+            nodePackages.bash-language-server
             nil
             lua-language-server
             emmet-ls
+            dockerfile-language-server-nodejs
+            yaml-language-server
+            pyright
             inputs.plugins-angular-ls
         ];
 
