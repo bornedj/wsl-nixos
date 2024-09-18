@@ -89,7 +89,6 @@ in
             dockerfile-language-server-nodejs
             yaml-language-server
             pyright
-            inputs.plugins-angular-ls
         ];
 
         plugins = with pkgs.vimPlugins; [

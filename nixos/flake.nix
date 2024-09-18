@@ -13,8 +13,6 @@
     plugins-fugitive.flake = false;
     plugins-nvim-web-devicons.url = "github:nvim-tree/nvim-web-devicons";
     plugins-nvim-web-devicons.flake = false;
-    plugins-angular-ls.url = "github:angular/vscode-ng-language-service";
-    plugins-angular-ls.flake = false;
   };
 
   outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, ... }: {
