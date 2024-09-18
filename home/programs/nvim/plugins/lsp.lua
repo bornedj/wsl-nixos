@@ -22,6 +22,16 @@ lsp.extend_lspconfig({
 })
 
 local cmp = require('cmp')
+cmp.setup({
+    sources = {
+        {name = 'nvim_lsp'}
+    },
+    snippet = { 
+        expand = function(args)
+            vim.snippet.expand(args.body)
+        end,
+    },
+})
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
@@ -29,27 +39,11 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
 })
-
-require('mason').setup({})
-require('mason-lspconfig').setup({
-    ensure_installed = {
-        'tsserver',
-        'eslint',
-        'rust_analyzer',
-        'lua_ls',
-        'angularls',
-        'cssls',
-        'emmet_ls',
-        'jsonls',
-        'html',
-        'pyright',
-        'bashls',
-        "nil_ls",
-        "yamlls",
-        "dockerls",
-    }
-})
-
+ 
+ 
+-- server configurations
+require'lspconfig'.tsserver.setup({})
+require'lspconfig'.eslint.setup({})
 require'lspconfig'.rust_analyzer.setup({
     settings = {
         cargo = {
@@ -59,3 +53,13 @@ require'lspconfig'.rust_analyzer.setup({
         }
     }
 })
+require'lspconfig'.lua_ls.setup({})
+require'lspconfig'.angularls.setup({})
+require'lspconfig'.cssls.setup({})
+require'lspconfig'.emmet_ls.setup({})
+require'lspconfig'.jsonls.setup({})
+require'lspconfig'.html.setup({})
+require'lspconfig'.pyright.setup({})
+require'lspconfig'.bashls.setup({})
+require'lspconfig'.yamlls.setup({})
+require'lspconfig'.dockerls.setup({})
