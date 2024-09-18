@@ -138,6 +138,22 @@
         "type": "github"
       }
     },
+    "plugins-angular-ls": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725986539,
+        "narHash": "sha256-JJnpC/J4AFFy3HF1wDtMtxy6RuMgpZ3UeZUSBk24ijM=",
+        "owner": "angular",
+        "repo": "vscode-ng-language-service",
+        "rev": "7c1330694cc50a166f45d48641c2e06ec0c6bcee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "angular",
+        "repo": "vscode-ng-language-service",
+        "type": "github"
+      }
+    },
     "plugins-fugitive": {
       "flake": false,
       "locked": {
@@ -175,6 +191,7 @@
         "home-manager": "home-manager",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
+        "plugins-angular-ls": "plugins-angular-ls",
         "plugins-fugitive": "plugins-fugitive",
         "plugins-nvim-web-devicons": "plugins-nvim-web-devicons",
         "sops-nix": "sops-nix"

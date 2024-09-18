@@ -81,8 +81,12 @@ in
 
         extraPackages = with pkgs; [
             nodePackages.typescript-language-server
+            nodePackages.vscode-langservers-extracted
             rust-analyzer
             nil
+            lua-language-server
+            emmet-ls
+            inputs.plugins-angular-ls
         ];
 
         plugins = with pkgs.vimPlugins; [
