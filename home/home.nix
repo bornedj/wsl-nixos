@@ -79,6 +79,12 @@ in
             ${builtins.readFile ./programs/nvim/remap.lua}
         '';
 
+        extraPackages = with pkgs; [
+            nodePackages.typescript-language-server
+            rust-analyzer
+            nil
+        ];
+
         plugins = with pkgs.vimPlugins; [
             {
                 # managing parsers itself, there's an open issue around doing it with nix
