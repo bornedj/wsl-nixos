@@ -112,7 +112,11 @@ in
             markdown-preview-nvim
             nvim-cmp
             cmp-nvim-lsp
-            nvim-lspconfig
+            {
+                type = "lua";
+                plugin = nvim-lspconfig;
+                config = builtins.readFile ./programs/nvim/plugins/lsp.lua;
+            }
             {
                 type = "lua";
                 plugin = onenord-nvim;
@@ -137,12 +141,6 @@ in
                 type = "lua";
                 plugin = harpoon;
                 config = builtins.readFile ./programs/nvim/plugins/harpoon.lua;
-            }
-            # TODO: look into replacing lsp zero and install language servers myself
-            {
-                type = "lua";
-                plugin = lsp-zero-nvim;
-                config = builtins.readFile ./programs/nvim/plugins/lsp.lua;
             }
             {
                 type = "lua";
