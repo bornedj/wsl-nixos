@@ -142,12 +142,6 @@ in
                 plugin = harpoon;
                 config = builtins.readFile ./programs/nvim/plugins/harpoon.lua;
             }
-            # TODO: look into replacing lsp zero and install language servers myself
-            {
-                type = "lua";
-                plugin = lsp-zero-nvim;
-                config = builtins.readFile ./programs/nvim/plugins/lsp.lua;
-            }
             {
                 type = "lua";
                 plugin = obsidian-nvim;
