@@ -13,6 +13,8 @@
     plugins-fugitive.flake = false;
     plugins-nvim-web-devicons.url = "github:nvim-tree/nvim-web-devicons";
     plugins-nvim-web-devicons.flake = false;
+    plugins-angularls.url = "https://registry.npmjs.org/@angular/language-server/-/language-server-18.2.0.tgz";
+    plugins-angularls.flake = false;
   };
 
   outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, ... }: {

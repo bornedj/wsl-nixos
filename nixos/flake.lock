@@ -138,20 +138,17 @@
         "type": "github"
       }
     },
-    "plugins-angular-ls": {
+    "plugins-angularls": {
       "flake": false,
       "locked": {
-        "lastModified": 1725986539,
-        "narHash": "sha256-JJnpC/J4AFFy3HF1wDtMtxy6RuMgpZ3UeZUSBk24ijM=",
-        "owner": "angular",
-        "repo": "vscode-ng-language-service",
-        "rev": "7c1330694cc50a166f45d48641c2e06ec0c6bcee",
-        "type": "github"
+        "lastModified": 1726752753,
+        "narHash": "sha256-13Sofaio1bS2urHbbgL/aOQJJG5KSM5rIQjLeSsqegs=",
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/@angular/language-server/-/language-server-18.2.0.tgz"
       },
       "original": {
-        "owner": "angular",
-        "repo": "vscode-ng-language-service",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/@angular/language-server/-/language-server-18.2.0.tgz"
       }
     },
     "plugins-fugitive": {
@@ -191,7 +188,7 @@
         "home-manager": "home-manager",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
-        "plugins-angular-ls": "plugins-angular-ls",
+        "plugins-angularls": "plugins-angularls",
         "plugins-fugitive": "plugins-fugitive",
         "plugins-nvim-web-devicons": "plugins-nvim-web-devicons",
         "sops-nix": "sops-nix"
