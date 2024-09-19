@@ -113,8 +113,6 @@ in
             nvim-cmp
             cmp-nvim-lsp
             nvim-lspconfig
-            mason-nvim
-            mason-lspconfig-nvim
             {
                 type = "lua";
                 plugin = onenord-nvim;
