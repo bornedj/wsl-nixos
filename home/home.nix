@@ -112,7 +112,11 @@ in
             markdown-preview-nvim
             nvim-cmp
             cmp-nvim-lsp
-            nvim-lspconfig
+            {
+                type = "lua";
+                plugin = nvim-lspconfig;
+                config = builtins.readFile ./programs/nvim/plugins/lsp.lua;
+            }
             {
                 type = "lua";
                 plugin = onenord-nvim;
