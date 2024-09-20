@@ -22,8 +22,8 @@
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
           nixos-wsl.nixosModules.default
+          ./nixos/work-wsl.nix
           {
             system.stateVersion = "24.05";
             wsl.enable = true;
@@ -32,13 +32,34 @@
           {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true; 
-              home-manager.users.nixos = import ../home/home.nix; 
+              home-manager.users.nixos = import ./home/users/work-wsl; 
               home-manager.sharedModules = [
                 inputs.sops-nix.homeManagerModules.sops
               ];
-              home-manager.extraSpecialArgs = { inherit inputs;  };
+              home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
+      };
+      "home-wsl" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./nixos/home-wsl.nix
+            nixos-wsl.nixosModules.default
+            {
+                system.stateVersion = "24.05";
+                wsl.enable = true;
+            }
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true; 
+              home-manager.users.daniel = import ./home/users/home-wsl;
+              home-manager.sharedModules = [
+                inputs.sops-nix.homeManagerModules.sops
+              ];
+              home-manager.extraSpecialArgs = { inherit inputs; };
+            }
+          ];
       };
     };
   };

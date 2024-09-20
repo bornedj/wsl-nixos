@@ -7,7 +7,7 @@ require("obsidian").setup {
         {
             name = "architecture",
             path = "~/obsidian/architecture",
-        }
+        },
     },
     daily_notes = {
         folder = "daily"

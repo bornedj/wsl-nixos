@@ -1,11 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-# NixOS-WSL specific options are documented on the NixOS-WSL repository:
-# https://github.com/nix-community/NixOS-WSL
-
-{ config, lib, pkgs, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   nix.settings.experimental-features = ["nix-command" "flakes" ];
@@ -39,8 +32,22 @@
   # patch the script 
   systemd.services.docker-desktop-proxy.script = lib.mkForce ''${config.wsl.wslConf.automount.root}/wsl/docker-desktop/docker-desktop-user-distro proxy --docker-desktop-root ${config.wsl.wslConf.automount.root}/wsl/docker-desktop "C:\Program Files\Docker\Docker\resources"'';
 
-  # copilot doesn't have purely free license. I am using the free version though
+  # copilot doesn't have purely free license.
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "copilot.vim"
+  ];
+
+  environment.shells = with pkgs; [ zsh ];
+  programs.zsh.enable = true;
+
+  users.users.nixos = {
+      isNormalUser = true;
+      name = "nixos";
+      home = "/home/nixos";
+      shell = pkgs.zsh;
+  };
+
+  environment.systemPackages = with pkgs; [
+    vim
   ];
 }
