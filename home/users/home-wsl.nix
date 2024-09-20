@@ -70,5 +70,6 @@
     imports = [
         ../common-programs/nvim
         ../common-programs/tmux
+        ../common-programs/zsh.nix
     ];
 }
