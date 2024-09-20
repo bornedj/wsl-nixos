@@ -39,10 +39,14 @@
   ];
 
   users.users.daniel = {
-      isSystemUser = true;
+      isNormalUser = true;
       name = "daniel";
       home = "/home/daniel";
   };
+
+  environment.pathsToLink = [
+    "/share/zsh"
+  ];
 
   environment.systemPackages = with pkgs; [
     vim
