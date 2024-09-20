@@ -37,6 +37,12 @@
     "copilot.vim"
   ];
 
+  users.users.daniel = {
+      isNormalUser = true;
+      name = "daniel";
+      home = "/home/daniel";
+  };
+
   environment.systemPackages = with pkgs; [
     vim
   ];
