@@ -39,7 +39,7 @@
   # patch the script 
   systemd.services.docker-desktop-proxy.script = lib.mkForce ''${config.wsl.wslConf.automount.root}/wsl/docker-desktop/docker-desktop-user-distro proxy --docker-desktop-root ${config.wsl.wslConf.automount.root}/wsl/docker-desktop "C:\Program Files\Docker\Docker\resources"'';
 
-  # copilot doesn't have purely free license. I am using the free version though
+  # copilot doesn't have purely free license.
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "copilot.vim"
   ];

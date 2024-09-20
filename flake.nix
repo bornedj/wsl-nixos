@@ -40,6 +40,27 @@
           }
         ];
       };
+      "home-wsl" = nixpkgs.lib.nixosSystem {
+          system = "x86_84-linux";
+          modules = [
+            ./configuration.nix
+            nixos-wsl.nixosModules.default
+            {
+                system.stateVersion = "24.05";
+                wsl.enable = true;
+            }
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true; 
+              home-manager.users.daniel = import ../home/users/home-wsl.nix;
+              home-manager.sharedModules = [
+                inputs.sops-nix.homeManagerModules.sops
+              ];
+              home-manager.extraSpecialArgs = { inherit inputs;  };
+            }
+          ];
+      };
     };
   };
 }
