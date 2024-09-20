@@ -68,8 +68,8 @@
     #     };
     # };
     imports = [
-        ../common-programs/nvim
-        ../common-programs/tmux
-        ../common-programs/zsh.nix
+        ../../common-programs/tmux
+        ./programs/zsh.nix
+        ./programs/nvim
     ];
 }

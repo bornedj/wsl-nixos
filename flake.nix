@@ -32,7 +32,7 @@
           {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true; 
-              home-manager.users.nixos = import ./home/home.nix; 
+              home-manager.users.nixos = import ./home/users/works-wsl; 
               home-manager.sharedModules = [
                 inputs.sops-nix.homeManagerModules.sops
               ];
@@ -53,7 +53,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true; 
-              home-manager.users.daniel = import ./home/users/home-wsl.nix;
+              home-manager.users.daniel = import ./home/users/home-wsl;
               home-manager.sharedModules = [
                 inputs.sops-nix.homeManagerModules.sops
               ];

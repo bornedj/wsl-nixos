@@ -38,10 +38,14 @@
     "copilot.vim"
   ];
 
+  environment.shells = with pkgs; [ zsh ];
+  programs.zsh.enable = true;
+
   users.users.daniel = {
       isNormalUser = true;
       name = "daniel";
       home = "/home/daniel";
+      shell = pkgs.zsh;
   };
 
   environment.pathsToLink = [
