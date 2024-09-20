@@ -41,7 +41,7 @@
         ];
       };
       "home-wsl" = nixpkgs.lib.nixosSystem {
-          system = "x86_84-linux";
+          system = "x86_64-linux";
           modules = [
             ./configuration.nix
             nixos-wsl.nixosModules.default
