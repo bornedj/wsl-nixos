@@ -32,7 +32,7 @@
           {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true; 
-              home-manager.users.nixos = import ../home/home.nix; 
+              home-manager.users.nixos = import ./home/home.nix; 
               home-manager.sharedModules = [
                 inputs.sops-nix.homeManagerModules.sops
               ];
