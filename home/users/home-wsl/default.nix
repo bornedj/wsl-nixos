@@ -1,24 +1,6 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
-    nixpkgs = {
-        overlays = [
-            (final: prev: {
-                vimPlugins = prev.vimPlugins // {
-                    own-fugitive = prev.vimUtils.buildVimPlugin {
-                        name = "fugitive";
-                        src = inputs.plugins-fugitive;
-                    };
-
-                    own-nvim-web-devicons = prev.vimUtils.buildVimPlugin {
-                        name = "nvim-web-devicons";
-                        src = inputs.plugins-nvim-web-devicons;
-                    };
-                };
-            })
-        ];
-    };
-
     programs.home-manager.enable = true;
     home.stateVersion =  "24.05";
     home.username = "daniel";

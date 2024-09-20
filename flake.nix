@@ -9,10 +9,6 @@
     sops-nix.url = "github:Mic92/sops-nix";
 
     # neovim plugins not found under pkgs.vimPlugins
-    plugins-fugitive.url = "github:tpope/vim-fugitive";
-    plugins-fugitive.flake = false;
-    plugins-nvim-web-devicons.url = "github:nvim-tree/nvim-web-devicons";
-    plugins-nvim-web-devicons.flake = false;
     plugins-angularls.url = "https://registry.npmjs.org/@angular/language-server/-/language-server-18.2.0.tgz";
     plugins-angularls.flake = false;
   };

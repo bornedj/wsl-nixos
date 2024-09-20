@@ -33,25 +33,31 @@
         ];
 
         plugins = with pkgs.vimPlugins; [
-            {
-                # managing parsers itself, there's an open issue around doing it with nix
-                type = "lua";
-                plugin = nvim-treesitter;
-                config = builtins.readFile ./plugins/treesitter.lua;
-            }
             plenary-nvim
             trouble-nvim
-            {
-                type = "lua";
-                plugin = undotree;
-                config = ''vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)'';
-            }
             vim-tmux-navigator
             nvim-jdtls
             nvim-dap
             markdown-preview-nvim
             nvim-cmp
             cmp-nvim-lsp
+            nvim-web-devicons
+            {
+                plugin = vim-fugitive;
+                type = "lua";
+                config = builtins.readFile ./plugins/fugitive.lua;
+            }
+            {
+                type = "lua";
+                plugin = undotree;
+                config = ''vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)'';
+            }
+            {
+                # managing parsers itself, there's an open issue around doing it with nix
+                type = "lua";
+                plugin = nvim-treesitter;
+                config = builtins.readFile ./plugins/treesitter.lua;
+            }
             {
                 type = "lua";
                 plugin = nvim-lspconfig;
