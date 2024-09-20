@@ -40,6 +40,13 @@
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
 
+  users.users.nixos = {
+      isNormalUser = true;
+      name = "nixos";
+      home = "/home/nixos";
+      shell = pkgs.zsh;
+  };
+
   environment.systemPackages = with pkgs; [
     vim
   ];
