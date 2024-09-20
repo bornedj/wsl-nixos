@@ -12,6 +12,7 @@
   system.stateVersion = "24.05"; # Did you read the comment?
   wsl = {
     docker-desktop.enable = false;
+    defaultUser = "daniel";
 
     extraBin = with pkgs; [
         { src = "${coreutils}/bin/mkdir"; }
@@ -38,7 +39,7 @@
   ];
 
   users.users.daniel = {
-      isNormalUser = true;
+      isSystemUser = true;
       name = "daniel";
       home = "/home/daniel";
   };
