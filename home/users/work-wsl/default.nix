@@ -29,6 +29,7 @@ in
         yq
         tree
         ggshieldOverrides.ggshield
+        bruno
     ];
     
     # home git configuration
