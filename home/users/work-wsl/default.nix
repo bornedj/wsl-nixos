@@ -30,6 +30,7 @@ in
         tree
         ggshieldOverrides.ggshield
         bruno
+        deck
     ];
     
     # home git configuration
