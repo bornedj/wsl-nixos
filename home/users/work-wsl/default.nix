@@ -31,6 +31,7 @@ in
         ggshieldOverrides.ggshield
         bruno
         deck
+        kubectl
     ];
     
     # home git configuration
