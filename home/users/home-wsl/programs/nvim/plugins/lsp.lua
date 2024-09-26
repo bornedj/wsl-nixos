@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- server configurations
-require'lspconfig'.tsserver.setup({})
+require'lspconfig'.ts_ls.setup({})
 require'lspconfig'.eslint.setup({})
 require'lspconfig'.rust_analyzer.setup({
     settings = {
