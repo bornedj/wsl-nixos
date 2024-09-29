@@ -31,9 +31,11 @@ require'lspconfig'.ts_ls.setup({})
 require'lspconfig'.eslint.setup({})
 require'lspconfig'.rust_analyzer.setup({
     settings = {
-        cargo = {
-            buildScripts = {
-                enable = true
+        ['rust_analyzer'] = {
+            cargo = {
+                buildScripts = {
+                    enable = true
+                }
             }
         }
     }
