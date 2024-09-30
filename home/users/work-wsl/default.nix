@@ -9,7 +9,6 @@ in
     home.username = "nixos";
     home.homeDirectory = "/home/nixos";
     home.packages = with pkgs; [
-        git
         # rust 
         rustup
         zoxide
@@ -42,6 +41,9 @@ in
         extraConfig = {
             core = {
                 symlinks = false;
+            };
+            pull = {
+                rebase = true;
             };
         };
     };

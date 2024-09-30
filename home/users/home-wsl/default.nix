@@ -6,7 +6,6 @@
     home.username = "daniel";
     home.homeDirectory = "/home/daniel";
     home.packages = with pkgs; [
-        git
         # rust 
         rustup
         zoxide
@@ -32,6 +31,9 @@
         extraConfig = {
             core = {
                 symlinks = false;
+            };
+            pull = {
+                rebase = true;
             };
         };
     };
