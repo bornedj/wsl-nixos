@@ -2,7 +2,7 @@
 let
   nixpkgs = fetchTarball {
       url = "https://github.com/NixOS/nixpkgs/tarball/nixos-24.05";
-      sha256 = "033my323rmlllrb7f5as7zikas0jxgidr8ffj8gabh8q0x9mgra6";
+      sha256 = "0mwibvglm5m4dcylggi47z7ysc5ma7qa1gpb3fhmrljspw1z3smv";
   };
   pkgs = import nixpkgs { config = {}; overlays = []; system = "x86_64-linux"; };
 
