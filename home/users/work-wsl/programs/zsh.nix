@@ -28,7 +28,9 @@
             gen_dms_jwt="docker run --rm --name jwt-cli bitnami/jwt-cli:latest encode -S b64:$JWT -P 'auth=[\"ROLE_ADMIN\"]' -s anonymous -A HS512 --no-typ -e=$(date -d '+1 days' +%s) | clip.exe";
             gen_doc="rm -rf docs/ && npm run doc";
 
-            update = "cd ~/dotfiles && sudo nixos-rebuild switch --flake .#nixos";
+            # impure as I'm using an abosulte path to my cert file
+            # need to research how I can add copy this file to the nix store so that I can use a relative path
+            update = "cd ~/dotfiles && sudo nixos-rebuild switch --flake .#nixos --impure";
         };
 
         profileExtra = ''

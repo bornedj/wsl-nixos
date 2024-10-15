@@ -50,4 +50,9 @@
   environment.systemPackages = with pkgs; [
     vim
   ];
+
+  # kinsale certs
+  security.pki.certificates = [
+      (builtins.readFile /home/nixos/dotfiles/nixos/trusted.kmi.lan.crt)
+  ];
 }
