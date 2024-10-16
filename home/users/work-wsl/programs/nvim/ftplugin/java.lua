@@ -11,12 +11,6 @@ local config = {
     settings = {
         java = {
             configuration = {
-                runtimes = {
-                    {
-                        name = "JavaSE-21",
-                        path = "/etc/profiles/per-user/nixos/lib/openjdk"
-                    }
-                }
             },
             completion = {
                 filteredTypes = {
