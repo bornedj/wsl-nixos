@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 let 
     ggshieldOverrides = import ../../pkgs/ggshield;
@@ -54,13 +54,14 @@ in
     };
 
     # sops configuration
-    # sops = {
-    #     age.keyFile = "/home/nixos/dotfiles/etc/nixos/sops/age/key.txt";
-    #     defaultSopsFile = ./secrets.json;
-    #     secrets.test = {
-    #         path = "%r/test.text";
-    #     };
-    # };
+    sops = {
+        age.keyFile = "/home/nixos/dotfiles/home/users/work-wsl/keys.txt";
+        defaultSopsFile = ../../secrets/kinsale.yaml;
+        secrets.test = {
+            path = "%r/test.text";
+        };
+    };
+
     imports = [
         ../../common-programs/tmux
         ./programs/zsh.nix
