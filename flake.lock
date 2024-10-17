@@ -41,11 +41,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1728903686,
-        "narHash": "sha256-ZHFrGNWDDriZ4m8CA/5kDa250SG1LiiLPApv1p/JF0o=",
+        "lastModified": 1729165983,
+        "narHash": "sha256-gtcodl79t5ZbbX4TSx4RNyggasEvLdVnc/IM+RyxqJw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e1aec543f5caf643ca0d94b6a633101942fd065f",
+        "rev": "78a7a070bbcc3b37cc36080c2a3514207d427b3b",
         "type": "github"
       },
       "original": {
@@ -109,11 +109,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1728999233,
-        "narHash": "sha256-4VUwvDfIG0tczBu7kr7FLShcvEP886XRk25GKDBK2h4=",
+        "lastModified": 1729172891,
+        "narHash": "sha256-YrsEHIqtkv6MKmIVvPcJE3gwOJ9baabyhAz+1CXQNWc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "00d748fa354d08c934860347ee4074e12235f8d4",
+        "rev": "3f092f903aa71c7d930d5e3b7d2604f990d48f36",
         "type": "github"
       },
       "original": {
@@ -141,7 +141,7 @@
     "plugins-angularls": {
       "flake": false,
       "locked": {
-        "lastModified": 1727451061,
+        "lastModified": 499162500,
         "narHash": "sha256-13Sofaio1bS2urHbbgL/aOQJJG5KSM5rIQjLeSsqegs=",
         "type": "tarball",
         "url": "https://registry.npmjs.org/@angular/language-server/-/language-server-18.2.0.tgz"
