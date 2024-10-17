@@ -29,9 +29,6 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true; 
               home-manager.users.nixos = import ./home/users/work-wsl; 
-              home-manager.sharedModules = [
-                inputs.sops-nix.homeManagerModules.sops
-              ];
               home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
@@ -50,9 +47,6 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true; 
               home-manager.users.daniel = import ./home/users/home-wsl;
-              home-manager.sharedModules = [
-                inputs.sops-nix.homeManagerModules.sops
-              ];
               home-manager.extraSpecialArgs = { inherit inputs; };
             }
           ];

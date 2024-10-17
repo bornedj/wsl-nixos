@@ -4,6 +4,13 @@ let
     ggshieldOverrides = import ../../pkgs/ggshield;
 in
 {
+    imports = [
+        ../../common-programs/tmux
+        ./programs/zsh.nix
+        ./programs/nvim
+        inputs.sops-nix.homeManagerModules.sops
+    ];
+
     programs.home-manager.enable = true;
     home.stateVersion =  "24.05";
     home.username = "nixos";
@@ -31,6 +38,7 @@ in
         bruno
         deck
         kubectl
+        sops
     ];
     
     # home git configuration
@@ -55,16 +63,10 @@ in
 
     # sops configuration
     sops = {
-        age.keyFile = "/home/nixos/dotfiles/home/users/work-wsl/keys.txt";
+        age.keyFile = ./keys.txt;
         defaultSopsFile = ../../secrets/kinsale.yaml;
-        secrets.test = {
-            path = "%r/test.text";
-        };
+        # secrets.test = {
+        #     path = "%r/test.text";
+        # };
     };
-
-    imports = [
-        ../../common-programs/tmux
-        ./programs/zsh.nix
-        ./programs/nvim
-    ];
 }
