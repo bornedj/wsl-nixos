@@ -45,6 +45,7 @@
       name = "nixos";
       home = "/home/nixos";
       shell = pkgs.zsh;
+      extraGroups = [ "docker" ];
   };
 
   environment.systemPackages = with pkgs; [
