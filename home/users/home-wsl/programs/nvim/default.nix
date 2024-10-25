@@ -23,7 +23,7 @@
             nodePackages.typescript-language-server
             nodePackages.vscode-langservers-extracted
             nodePackages.bash-language-server
-            nil
+            nixd
             lua-language-server
             emmet-ls
             dockerfile-language-server-nodejs
