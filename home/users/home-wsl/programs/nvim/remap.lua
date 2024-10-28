@@ -97,3 +97,6 @@ vim.keymap.set("n", "<leader>cfrp", '<cmd>silent let @+ = expand("%")<CR>')
 
 -- toggle spell check
 vim.keymap.set("n", "<leader>ts", '<cmd>silent set spell!<CR>')
+
+-- toggle line wrap
+vim.keymap.set("n", "<leader>tw", '<cmd>silent set wrap!<CR>')
