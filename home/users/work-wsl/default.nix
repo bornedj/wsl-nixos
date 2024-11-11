@@ -63,10 +63,7 @@ in
 
     # sops configuration
     sops = {
-        age.keyFile = ./keys.txt;
+        age.keyFile = "/home/nixos/dotfiles/home/users/work-wsl/keys.txt";
         defaultSopsFile = ../../secrets/kinsale.yaml;
-        # secrets.test = {
-        #     path = "%r/test.text";
-        # };
     };
 }
