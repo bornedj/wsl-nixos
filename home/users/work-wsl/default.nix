@@ -53,6 +53,9 @@ in
             pull = {
                 rebase = true;
             };
+            push = {
+                autoSetupRemote = "true";
+            };
         };
     };
 
