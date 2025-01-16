@@ -11,7 +11,11 @@ require("obsidian").setup {
         {
             name = "daily_notes",
             path = "~/obsidian/daily",
-        }
+        },
+        {
+            name = "KIT",
+            path = "~/obsidian/KIT",
+        },
     },
     daily_notes = {
         folder = "daily"
