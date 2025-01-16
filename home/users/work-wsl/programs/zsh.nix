@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
     programs.zsh = {
@@ -31,6 +31,10 @@
             # impure as I'm using an abosulte path to my cert file
             # need to research how I can add copy this file to the nix store so that I can use a relative path
             update = "cd ~/dotfiles && sudo nixos-rebuild switch --flake .#nixos --impure";
+
+            fix_forms="rm -rf node_modules/@kinsale/forms && cc && npm i ../kinsale-forms/dist/kinsale-forms/kinsale-forms-17.21.0.tgz --force && npx ng serve -c local";
+
+            delete_node_modules="cd ~/gitlab_repos && find -maxdepth 2 -type d | rg node_modules | xargs rm -rf";
         };
 
         profileExtra = ''
