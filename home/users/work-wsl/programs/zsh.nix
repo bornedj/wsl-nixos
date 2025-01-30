@@ -41,6 +41,12 @@
             eval "$(zoxide init zsh)"
         '';
 
+        initExtra = ''
+            extract_secret() {
+                sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq $1 | tr -d | clip.exe '"'
+            }
+        '';
+
         sessionVariables = {
             M2_HOME="~/.m2/";
             M2="$(which mvn)";
