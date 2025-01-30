@@ -41,6 +41,7 @@ in
         deck
         kubectl
         sops
+        aws-azure-login
     ];
     
     # home git configuration
