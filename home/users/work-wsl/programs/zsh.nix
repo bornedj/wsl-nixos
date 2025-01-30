@@ -43,7 +43,7 @@
 
         initExtra = ''
             extract_secret() {
-                sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq $1 | tr -d | clip.exe '"'
+                sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq $1 | tr -d '"' | clip.exe 
             }
         '';
 
