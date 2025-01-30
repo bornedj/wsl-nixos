@@ -42,6 +42,7 @@ in
         kubectl
         sops
         aws-azure-login
+        nodePackages.prettier
     ];
     
     # home git configuration
