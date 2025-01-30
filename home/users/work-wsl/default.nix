@@ -2,6 +2,7 @@
 
 let 
     ggshieldOverrides = import ../../pkgs/ggshield;
+    jhipsterOverrides = import ../../pkgs/jhipster;
 in
 {
     imports = [
@@ -35,6 +36,7 @@ in
         yq
         tree
         ggshieldOverrides.ggshield
+        jhipsterOverrides.jhipster
         bruno
         deck
         kubectl
