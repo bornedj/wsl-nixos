@@ -1,7 +1,6 @@
 { pkgs, inputs, ... }:
 
 let 
-    ggshieldOverrides = import ../../pkgs/ggshield;
     jhipsterOverrides = import ../../pkgs/jhipster;
 in
 {
@@ -35,7 +34,6 @@ in
         jq
         yq
         tree
-        ggshieldOverrides.ggshield
         jhipsterOverrides.jhipster
         bruno
         deck
@@ -43,6 +41,7 @@ in
         sops
         aws-azure-login
         nodePackages.prettier
+        ggshield
     ];
     
     # home git configuration
