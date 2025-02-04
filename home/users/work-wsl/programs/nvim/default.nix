@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
     home.packages = with pkgs; [
@@ -23,13 +23,13 @@
             nodePackages.typescript-language-server
             nodePackages.vscode-langservers-extracted
             nodePackages.bash-language-server
+            angular-language-server
             lua-language-server
             emmet-ls
             dockerfile-language-server-nodejs
             yaml-language-server
             pyright
             nixd
-            inputs.plugins-angularls
         ];
 
         plugins = with pkgs.vimPlugins; [
@@ -42,6 +42,9 @@
             nvim-cmp
             cmp-nvim-lsp
             nvim-web-devicons
+            vim-dadbod
+            vim-dadbod-ui
+            vim-dadbod-completion
             {
                 plugin = vim-fugitive;
                 type = "lua";
