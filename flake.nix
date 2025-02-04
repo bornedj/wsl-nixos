@@ -7,10 +7,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
-
-    # neovim plugins not found under pkgs.vimPlugins
-    plugins-angularls.url = "https://registry.npmjs.org/@angular/language-server/-/language-server-18.2.0.tgz";
-    plugins-angularls.flake = false;
   };
 
   outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, ... }: {
@@ -21,7 +17,7 @@
           nixos-wsl.nixosModules.default
           ./nixos/work-wsl.nix
           {
-            system.stateVersion = "24.05";
+            system.stateVersion = "24.11";
             wsl.enable = true;
           }
           home-manager.nixosModules.home-manager
@@ -39,7 +35,7 @@
             ./nixos/home-wsl.nix
             nixos-wsl.nixosModules.default
             {
-                system.stateVersion = "24.05";
+                system.stateVersion = "24.11";
                 wsl.enable = true;
             }
             home-manager.nixosModules.home-manager
