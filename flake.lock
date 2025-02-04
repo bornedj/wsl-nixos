@@ -23,11 +23,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1736785676,
-        "narHash": "sha256-TY0jUwR3EW0fnS0X5wXMAVy6h4Z7Y6a3m+Yq++C9AyE=",
+        "lastModified": 1738667255,
+        "narHash": "sha256-sMMQb9NydZqQ/MvvtPp+Ny0W9P0Jk0moU7SrTBlO5Vo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "fc52a210b60f2f52c74eac41a8647c1573d2071d",
+        "rev": "7abcf59a365430b36f84eaa452a466b11e469e33",
         "type": "github"
       },
       "original": {
@@ -74,11 +74,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1736948409,
-        "narHash": "sha256-epeUHIMidSlUKsTyN4TFTOZ6bm1KT02ExYrbvc5Fk0I=",
+        "lastModified": 1738680400,
+        "narHash": "sha256-ooLh+XW8jfa+91F1nhf9OF7qhuA/y1ChLx6lXDNeY5U=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "060e15c0737ea7548ce8c8887855733a1fd8ddf6",
+        "rev": "799ba5bffed04ced7067a91798353d360788b30d",
         "type": "github"
       },
       "original": {
@@ -103,25 +103,11 @@
         "type": "github"
       }
     },
-    "plugins-angularls": {
-      "flake": false,
-      "locked": {
-        "lastModified": 499162500,
-        "narHash": "sha256-13Sofaio1bS2urHbbgL/aOQJJG5KSM5rIQjLeSsqegs=",
-        "type": "tarball",
-        "url": "https://registry.npmjs.org/@angular/language-server/-/language-server-18.2.0.tgz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://registry.npmjs.org/@angular/language-server/-/language-server-18.2.0.tgz"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
-        "plugins-angularls": "plugins-angularls",
         "sops-nix": "sops-nix"
       }
     },
@@ -130,11 +116,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1736808430,
-        "narHash": "sha256-wlgdf/n7bJMLBheqt1jmPoxJFrUP6FByKQFXuM9YvIk=",
+        "lastModified": 1738291974,
+        "narHash": "sha256-wkwYJc8cKmmQWUloyS9KwttBnja2ONRuJQDEsmef320=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "553c7cb22fed19fd60eb310423fdc93045c51ba8",
+        "rev": "4c1251904d8a08c86ac6bc0d72cc09975e89aef7",
         "type": "github"
       },
       "original": {
