@@ -56,4 +56,7 @@
   security.pki.certificates = [
       (builtins.readFile /home/nixos/dotfiles/nixos/trusted.kmi.lan.crt)
   ];
+
+  nix.optimise.automatic =  true;
+  nix.optimise.dates = ["08:30"];
 }
