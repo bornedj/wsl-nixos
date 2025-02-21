@@ -12,7 +12,7 @@ in
     ];
 
     programs.home-manager.enable = true;
-    home.stateVersion =  "24.05";
+    home.stateVersion =  "24.11";
     home.username = "nixos";
     home.homeDirectory = "/home/nixos";
     home.packages = with pkgs; [
