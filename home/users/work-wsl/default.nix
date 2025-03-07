@@ -1,11 +1,18 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 let 
-    ggshieldOverrides = import ../../pkgs/ggshield;
+    jhipsterOverrides = import ../../pkgs/jhipster;
 in
 {
+    imports = [
+        ../../common-programs/tmux
+        ./programs/zsh.nix
+        ./programs/nvim
+        inputs.sops-nix.homeManagerModules.sops
+    ];
+
     programs.home-manager.enable = true;
-    home.stateVersion =  "24.05";
+    home.stateVersion =  "24.11";
     home.username = "nixos";
     home.homeDirectory = "/home/nixos";
     home.packages = with pkgs; [
@@ -27,10 +34,14 @@ in
         jq
         yq
         tree
-        ggshieldOverrides.ggshield
+        jhipsterOverrides.jhipster
         bruno
         deck
         kubectl
+        sops
+        aws-azure-login
+        nodePackages.prettier
+        ggshield
     ];
     
     # home git configuration
@@ -45,6 +56,9 @@ in
             pull = {
                 rebase = true;
             };
+            push = {
+                autoSetupRemote = "true";
+            };
         };
     };
 
@@ -54,16 +68,8 @@ in
     };
 
     # sops configuration
-    # sops = {
-    #     age.keyFile = "/home/nixos/dotfiles/etc/nixos/sops/age/key.txt";
-    #     defaultSopsFile = ./secrets.json;
-    #     secrets.test = {
-    #         path = "%r/test.text";
-    #     };
-    # };
-    imports = [
-        ../../common-programs/tmux
-        ./programs/zsh.nix
-        ./programs/nvim
-    ];
+    sops = {
+        age.keyFile = "/home/nixos/dotfiles/home/users/work-wsl/keys.txt";
+        defaultSopsFile = ../../secrets/kinsale.yaml;
+    };
 }

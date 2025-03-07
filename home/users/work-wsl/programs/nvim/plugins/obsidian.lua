@@ -8,6 +8,14 @@ require("obsidian").setup {
             name = "architecture",
             path = "~/obsidian/architecture",
         },
+        {
+            name = "daily_notes",
+            path = "~/obsidian/daily",
+        },
+        {
+            name = "KIT",
+            path = "~/obsidian/KIT",
+        },
     },
     daily_notes = {
         folder = "daily"

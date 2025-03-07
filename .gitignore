@@ -1,5 +1,5 @@
 **/keys.txt
 home/common-programs/tmux/plugins/
-home/**/result/
+home/**/result
 .config/nvim/init.lua
 **/trusted.kmi.lan.crt

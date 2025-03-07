@@ -6,6 +6,8 @@ require('telescope').setup {
     },
 }
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fc', builtin.git_commits, {})
+vim.keymap.set('n', '<leader>fb', builtin.git_branches, {})
 vim.keymap.set('n', '<leader>fh',  "<cmd>Telescope find_files hidden=true no_ignore=true<CR>",{})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 -- grep commits

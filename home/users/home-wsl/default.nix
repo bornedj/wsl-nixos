@@ -2,7 +2,7 @@
 
 {
     programs.home-manager.enable = true;
-    home.stateVersion =  "24.05";
+    home.stateVersion =  "24.11";
     home.username = "daniel";
     home.homeDirectory = "/home/daniel";
     home.packages = with pkgs; [

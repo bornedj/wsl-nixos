@@ -50,7 +50,7 @@ require'lspconfig'.pyright.setup({})
 require'lspconfig'.bashls.setup({})
 require'lspconfig'.yamlls.setup({})
 require'lspconfig'.dockerls.setup({})
-require'lspconfig'.nil_ls.setup({})
+require'lspconfig'.nixd.setup({})
 
 -- completion setup
 local cmp = require('cmp')

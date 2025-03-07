@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
     programs.zsh = {
@@ -7,7 +7,7 @@
         enableCompletion = true;
         oh-my-zsh = {
             enable = true;
-            plugins = [ "git" "rust" "npm" "fzf" "mvn" "ng" "node" "ssh" ];
+            plugins = [ "git" "rust" "npm" "fzf" "mvn" "ng" "node" "ssh" "docker" "docker-compose" "kubectl"];
             theme = "cloud";
         };
 
@@ -31,10 +31,20 @@
             # impure as I'm using an abosulte path to my cert file
             # need to research how I can add copy this file to the nix store so that I can use a relative path
             update = "cd ~/dotfiles && sudo nixos-rebuild switch --flake .#nixos --impure";
+
+            fix_forms="rm -rf node_modules/@kinsale/forms && cc && npm i ../kinsale-forms/dist/kinsale-forms/kinsale-forms-17.21.0.tgz --force && npx ng serve -c local";
+
+            delete_node_modules="cd ~/gitlab_linux && find -maxdepth 2 -type d | rg node_modules | xargs rm -rf";
         };
 
         profileExtra = ''
             eval "$(zoxide init zsh)"
+        '';
+
+        initExtra = ''
+            extract_secret() {
+                sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq $1 | tr -d '"' | clip.exe 
+            }
         '';
 
         sessionVariables = {
