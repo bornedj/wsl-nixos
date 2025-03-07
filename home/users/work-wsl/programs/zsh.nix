@@ -7,7 +7,7 @@
         enableCompletion = true;
         oh-my-zsh = {
             enable = true;
-            plugins = [ "git" "rust" "npm" "fzf" "mvn" "ng" "node" "ssh" ];
+            plugins = [ "git" "rust" "npm" "fzf" "mvn" "ng" "node" "ssh" "docker" "docker-compose" "kubectl"];
             theme = "cloud";
         };
 
