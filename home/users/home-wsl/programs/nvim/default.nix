@@ -23,13 +23,13 @@
             nodePackages.typescript-language-server
             nodePackages.vscode-langservers-extracted
             nodePackages.bash-language-server
+            angular-language-server
             nixd
             lua-language-server
             emmet-ls
             dockerfile-language-server-nodejs
             yaml-language-server
             pyright
-            inputs.plugins-angularls
         ];
 
         plugins = with pkgs.vimPlugins; [
