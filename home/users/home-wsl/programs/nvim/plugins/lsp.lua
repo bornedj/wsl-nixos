@@ -51,6 +51,7 @@ require'lspconfig'.bashls.setup({})
 require'lspconfig'.yamlls.setup({})
 require'lspconfig'.dockerls.setup({})
 require'lspconfig'.nixd.setup({})
+require'lspconfig'.gopls.setup({})
 
 -- completion setup
 local cmp = require('cmp')

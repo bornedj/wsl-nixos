@@ -29,6 +29,7 @@
             dockerfile-language-server-nodejs
             yaml-language-server
             pyright
+            gopls
             inputs.plugins-angularls
         ];
 

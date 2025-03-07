@@ -20,6 +20,7 @@
         jq
         yq
         tree
+        go
     ];
 
     
