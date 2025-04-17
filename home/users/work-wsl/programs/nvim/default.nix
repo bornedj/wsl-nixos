@@ -23,6 +23,7 @@
             nodePackages.typescript-language-server
             nodePackages.vscode-langservers-extracted
             nodePackages.bash-language-server
+            terraform-ls
             angular-language-server
             lua-language-server
             emmet-ls
