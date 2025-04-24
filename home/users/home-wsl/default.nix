@@ -6,20 +6,26 @@
     home.username = "daniel";
     home.homeDirectory = "/home/daniel";
     home.packages = with pkgs; [
-        # rust 
+        #languages
         rustup
-        zoxide
-        ripgrep
         python3
         nodejs
         lua
+
+        # rust 
+        zoxide
+        ripgrep
+
+        # CLI utils
         fzf
-        stow
         curl
         age
         jq
         yq
         tree
+
+        # oracle
+        oracle-instantclient
     ];
 
     
