@@ -16,32 +16,44 @@ in
     home.username = "nixos";
     home.homeDirectory = "/home/nixos";
     home.packages = with pkgs; [
-        # rust 
+        # languages 
         rustup
-        zoxide
-        ripgrep
         python3
         nodejs
         lua
-        fzf
-        stow
-        curl
-        age
-        # java
-        jdt-language-server
         jdk
         maven
+
+        # rust cli
+        zoxide
+        ripgrep
+
+        # cli utils
+        fzf
+        curl
+        age
         jq
         yq
         tree
-        jhipsterOverrides.jhipster
         bruno
         deck
         kubectl
-        sops
         aws-azure-login
-        nodePackages.prettier
+
+        # java utils
+        jdt-language-server
+        jhipsterOverrides.jhipster
+
+
+        # commit lint
         ggshield
+        nodePackages.prettier
+
+        # oracle
+        oracle-instantclient
+
+        # secrets
+        sops
     ];
     
     # home git configuration
