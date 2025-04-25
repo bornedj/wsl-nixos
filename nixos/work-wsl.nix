@@ -35,6 +35,7 @@
   # copilot doesn't have purely free license.
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "copilot.vim"
+    "oracle-instantclient"
   ];
 
   environment.shells = with pkgs; [ zsh ];
