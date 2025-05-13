@@ -38,10 +38,12 @@
         };
 
         profileExtra = ''
+            # ignore dist directories
+            export _ZO_EXCLUDE_DIRS="dist/*"
             eval "$(zoxide init zsh)"
         '';
 
-        initExtra = ''
+        initContent = ''
             extract_secret() {
                 sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq $1 | tr -d '"' | clip.exe 
             }
