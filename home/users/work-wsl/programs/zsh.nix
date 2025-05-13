@@ -50,7 +50,7 @@
         sessionVariables = {
             M2_HOME="~/.m2/";
             M2="$(which mvn)";
-            PATH="$PATH:$M2:~/dotfiles/etc/nixos/pkgs/result/bin/ggshield";
+            PATH="$PATH:$M2:~/dotfiles/etc/nixos/pkgs/result/bin/ggshield:~/.npm/bin/schematics:~/.npm/bin/ng";
             GATLING_HOME="/mnt/c/Users/daniel.borne/gatling/gatling-charts-highcharts-bundle-3.9.5";
             GATLING_RECORD=''$GATLING_HOME"/bin/recorder.sh"'';
             GATLING_GUI=''$GATLING_HOME"/bin/gatling.sh"'';
