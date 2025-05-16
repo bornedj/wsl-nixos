@@ -71,6 +71,9 @@ in
             push = {
                 autoSetupRemote = "true";
             };
+            ignores = [
+                "shell.nix"
+            ];
         };
     };
 
