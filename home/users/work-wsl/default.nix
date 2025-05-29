@@ -71,10 +71,10 @@ in
             push = {
                 autoSetupRemote = "true";
             };
-            ignores = [
-                "shell.nix"
-            ];
         };
+        ignores = [
+            "shell.nix"
+        ];
     };
 
     # browser configuration
