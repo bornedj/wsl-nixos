@@ -87,4 +87,12 @@ in
         age.keyFile = "/home/nixos/dotfiles/home/users/work-wsl/keys.txt";
         defaultSopsFile = ../../secrets/kinsale.yaml;
     };
+
+    # github cli configuration
+    programs.gh = {
+        enable = true;
+        settings = {
+            editor = "nvim";
+        };
+    };
 }

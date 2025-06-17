@@ -13,6 +13,10 @@ buildNpmPackage rec {
     
     npmDepsHash = "sha256-i9GfDAmw3ejYxP0vIjo3ZFnaLnHwmdpoQrfBq93Lf/Q=";
 
+    # postInstall = ''
+    #     npm i
+    # '';
+
     meta = {
         description = "JHipster is a development platform to generate microservices and modern web applications";
         homepage = "https://www.jhipster.tech/";
