@@ -1,8 +1,5 @@
 { pkgs, inputs, ... }:
 
-let 
-    jhipsterOverrides = import ../../pkgs/jhipster;
-in
 {
     imports = [
         ../../common-programs/tmux
@@ -42,8 +39,6 @@ in
 
         # java utils
         jdt-language-server
-        jhipsterOverrides.jhipster
-
 
         # commit lint
         ggshield
