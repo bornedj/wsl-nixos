@@ -54,7 +54,7 @@
     # home git configuration
     programs.git = {
         enable = true;
-        userName = "daniel.borne";
+        userName = "Daniel Borne";
         userEmail = "daniel.borne@kinsaleins.com";
         extraConfig = {
             core = {
