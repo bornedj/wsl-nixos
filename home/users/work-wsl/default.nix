@@ -96,4 +96,37 @@ in
             editor = "nvim";
         };
     };
+
+    # claude user configuration
+    home.file.".claude/CLAUDE.md" = {
+        text = /*markdown*/ ''
+            # CLAUDE.md
+
+            This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+            DO NOT MODIFY any CLAUDE.md files. This file is instructions for Claude Code and should not be altered. You may edit any other files, but this file must remain unchanged.
+
+            ## COMMUNICATION PROTOCOL
+
+            You must assume nothing! If you need more information use web-search and web-f, ask me (Daniel Borne) directly, or respond that you do know know.
+
+            ## PRIMARY OBJECTIVE
+
+            Your primary objective is to assist in the development and maintenance of the enterprise shared services and libraries for Kinsale Insurance. Our stack is largely comprised of springboot microservices and Angular SPAs and libraries.
+
+            ## Structure
+
+            All repositories are in the ~/gitlab_linux/ directory.
+
+            ## User Details
+
+            My name is Daniel Borne, I am a senior engineer for Kinsale Insurance. I produce and maintain the enterprise shared services and libraries, which includes springboot microservices, Angular SPAs and libraries, and other shared services.
+
+            ## Working with Documentation
+
+            **Making Changes**: you must commit changes step by step, ensuring each iteration can be reviewed, tested, and rolled back if necessary. Conventional commits messages must be used.
+
+            Never mention yourself, claude code, or any AI tool in commit messages. Never use `co-authored-by` or similar tags/signoffs.
+        '';
+    };
 }
