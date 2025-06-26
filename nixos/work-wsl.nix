@@ -22,9 +22,9 @@
         { src = "${su}/bin/groupadd"; }
         { src = "${su}/bin/usermod"; }
     ];
-    wslConf = {
-        network.generateResolveConf = false;
-    };
+    # wslConf = {
+    #     network.generateResolvConf = false;
+    # };
   };
   virtualisation.docker = {
     enable = true;
