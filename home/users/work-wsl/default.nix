@@ -49,6 +49,9 @@
 
         # secrets
         sops
+
+        # claude
+        claude-code
     ];
     
     # home git configuration

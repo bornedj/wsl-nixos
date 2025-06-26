@@ -35,10 +35,11 @@
   # patch the script 
   systemd.services.docker-desktop-proxy.script = lib.mkForce ''${config.wsl.wslConf.automount.root}/wsl/docker-desktop/docker-desktop-user-distro proxy --docker-desktop-root ${config.wsl.wslConf.automount.root}/wsl/docker-desktop "C:\Program Files\Docker\Docker\resources"'';
 
-  # copilot doesn't have purely free license.
+  # ai tools don't have purely free licenses.
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "copilot.vim"
     "oracle-instantclient"
+    "claude-code"
   ];
 
   environment.shells = with pkgs; [ zsh ];

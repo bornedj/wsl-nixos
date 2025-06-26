@@ -46,6 +46,7 @@
             vim-dadbod
             vim-dadbod-ui
             vim-dadbod-completion
+            claude-code-nvim
             {
                 plugin = vim-fugitive;
                 type = "lua";
