@@ -1,5 +1,8 @@
 { pkgs, inputs, ... }:
 
+let 
+    claude = import ../../pkgs/claude-code;
+in
 {
     imports = [
         ../../common-programs/tmux
@@ -51,7 +54,7 @@
         sops
 
         # claude
-        claude-code
+        claude.claude
     ];
     
     # home git configuration

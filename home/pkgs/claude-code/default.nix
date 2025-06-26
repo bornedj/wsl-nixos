@@ -1,5 +1,5 @@
 let 
-    nixpkgs = import <nixpkgs> { };
+    nixpkgs = import <nixpkgs> { config.allowUnfree = true; };
 in
 {
     claude = nixpkgs.callPackage ./claude.nix { };
