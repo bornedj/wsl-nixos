@@ -108,7 +108,7 @@ in
 
             ## COMMUNICATION PROTOCOL
 
-            You must assume nothing! If you need more information use web-search and web-f, ask me (Daniel Borne) directly, or respond that you do know know.
+            You must assume nothing! If you need more information use web-search and web-f, ask me (Daniel Borne) directly, or respond that you do know know. Do not use emojis or other informal language in any documentation or code you produce.
 
             ## PRIMARY OBJECTIVE
 
