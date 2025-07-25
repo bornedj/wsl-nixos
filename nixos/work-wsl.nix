@@ -62,6 +62,16 @@
       (builtins.readFile /home/nixos/dotfiles/nixos/trusted.kmi.lan.crt)
   ];
 
+  # garbage collection
+  boot.loader.systemd-boot.configurationLimit = 10;
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 1w";
+  };
+
+
   nix.optimise.automatic =  true;
   nix.optimise.dates = ["08:30"];
 }
