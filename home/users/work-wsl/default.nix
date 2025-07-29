@@ -39,6 +39,7 @@ in
         deck
         kubectl
         aws-azure-login
+        awscli2
 
         # java utils
         jdt-language-server
