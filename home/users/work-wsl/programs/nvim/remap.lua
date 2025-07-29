@@ -100,3 +100,16 @@ vim.keymap.set("n", "<leader>ts", '<cmd>silent set spell!<CR>')
 
 -- toggle line wrap
 vim.keymap.set("n", "<leader>tw", '<cmd>silent set wrap!<CR>')
+
+-- create a gitlab link from current cursor position
+vim.keymap.set("n", "<leader>gl", function()
+    local filename = vim.fn.expand("%")
+    local line_number = vim.api.nvim_win_get_cursor(0)[1]
+    -- drops the prepended git@ and appended .git and line break
+    local origin = string.sub(vim.fn.system("git remote get-url origin"), 5, -6)
+    local base_path = string.gsub(origin, ":", "/", 1)
+    local branch = vim.fn.system("git branch --show-current")
+    local formatted_url = string.format("https://%s/-/blob/%s/%s#L%s", base_path, branch, filename, line_number)
+    vim.fn.setreg("+", formatted_url)
+    print(formatted_url)
+end)
