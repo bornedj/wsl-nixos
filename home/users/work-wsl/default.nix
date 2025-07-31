@@ -132,8 +132,14 @@ in
         '';
     };
 
-    home.file.".local/bin/tmux-sessionizer.sh".text = builtins.readFile ../../../.local/bin/tmux-sessionizer.sh;
-    home.file.".local/bin/tmux-session-init.sh".text = builtins.readFile ../../../.local/bin/tmux-session-init.sh;
+    home.file.".local/bin/tmux-sessionizer.sh" = {
+        source = ../../../.local/bin/tmux-sessionizer.sh;
+        executable = true;
+    };
+    home.file.".local/bin/tmux-session-init.sh" = {
+        source = ../../../.local/bin/tmux-session-init.sh;
+        executable = true;
+    };
 
     home.file.".npmrc".text = ''
         prefix="~/.npm"
