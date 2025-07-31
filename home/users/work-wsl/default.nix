@@ -73,6 +73,7 @@ in
             push = {
                 autoSetupRemote = "true";
             };
+            init.defaultBranch = "main";
         };
         ignores = [
             "shell.nix"
@@ -130,4 +131,7 @@ in
             Never mention yourself, claude code, or any AI tool in commit messages. Never use `co-authored-by` or similar tags/signoffs.
         '';
     };
+
+    home.file.".local/bin/tmux-sessionizer.sh".text = builtins.readFile ../../../.local/bin/tmux-sessionizer.sh;
+    home.file.".local/bin/tmux-session-init.sh".text = builtins.readFile ../../../.local/bin/tmux-session-init.sh;
 }
