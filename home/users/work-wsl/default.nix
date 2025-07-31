@@ -75,6 +75,9 @@ in
             };
             init.defaultBranch = "main";
         };
+        hooks = {
+            pre-commit = ./programs/git/pre-commit;
+        };
         ignores = [
             "shell.nix"
         ];
