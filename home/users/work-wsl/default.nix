@@ -134,4 +134,13 @@ in
 
     home.file.".local/bin/tmux-sessionizer.sh".text = builtins.readFile ../../../.local/bin/tmux-sessionizer.sh;
     home.file.".local/bin/tmux-session-init.sh".text = builtins.readFile ../../../.local/bin/tmux-session-init.sh;
+
+    home.file.".npmrc".text = ''
+        prefix="~/.npm"
+        cafile="/etc/ssl/certs/ca-certificates.crt"
+        @kinsale:registry=https://nexus.itp.kinsale.cloud/repository/kinsale-npm-group/
+        //nexus.itp.kinsale.cloud/repository/kinsale-npm-group/:_auth=''${NPM_PUBLISH_TOKEN}
+        registry=https://nexus.itp.kinsale.cloud/repository/kinsale-npm-group/
+        always_auth=true
+    '';
 }
