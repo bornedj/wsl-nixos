@@ -113,3 +113,15 @@ vim.keymap.set("n", "<leader>gl", function()
     vim.fn.setreg("+", formatted_url)
     print(formatted_url)
 end)
+
+-- create link to current file in gitlab
+vim.keymap.set('n', "<leader>gfl", function()
+    local filename = vim.fn.expand("%")
+    -- drops the prepended git@ and appended .git and line break
+    local origin = string.sub(vim.fn.system("git remote get-url origin"), 5, -6)
+    local base_path = string.gsub(origin, ":", "/", 1)
+    local branch = string.gsub(vim.fn.system("git branch --show-current"), "\n", "", 1)
+    local formatted_url = string.format("https://%s/-/blob/%s/%s", base_path, branch, filename)
+    vim.fn.setreg("+", formatted_url)
+    print(formatted_url)
+end)
