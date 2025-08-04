@@ -40,13 +40,13 @@
         profileExtra = ''
             # ignore dist directories
             export _ZO_EXCLUDE_DIRS="dist/*"
-            eval "$(zoxide init zsh)"
         '';
 
         initContent = ''
             extract_secret() {
                 sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq $1 | tr -d '"' | clip.exe 
             }
+            eval "$(zoxide init zsh)"
         '';
 
         sessionVariables = {
