@@ -199,8 +199,8 @@ in
                 };
               };
               logger = {
-                tail = 100;
-                buffer = 5000;
+                tail = 1000;
+                buffer = 10000;
                 sinceSeconds = -1;
                 textWrap = false;
                 disableAutoscroll = false;
