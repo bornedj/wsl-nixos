@@ -152,4 +152,12 @@ in
         registry=https://nexus.itp.kinsale.cloud/repository/kinsale-npm-group/
         always_auth=true
     '';
+
+    # k9s configuration
+    programs.k9s = {
+        enable = true;
+        skins = {
+            nord = ./programs/k9s/nord.yaml;
+        };
+    };
 }
