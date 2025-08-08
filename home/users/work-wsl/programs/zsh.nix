@@ -58,6 +58,7 @@
             GATLING_RECORD=''$GATLING_HOME"/bin/recorder.sh"'';
             GATLING_GUI=''$GATLING_HOME"/bin/gatling.sh"'';
             JAVA_HOME="/etc/profiles/per-user/nixos/lib/openjdk";
+            FILECABINET_PATH="\\kv-lin-img-u01\filecabinet\submission\000000001";
         };
     };
 }
