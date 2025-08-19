@@ -35,6 +35,21 @@
   # patch the script 
   systemd.services.docker-desktop-proxy.script = lib.mkForce ''${config.wsl.wslConf.automount.root}/wsl/docker-desktop/docker-desktop-user-distro proxy --docker-desktop-root ${config.wsl.wslConf.automount.root}/wsl/docker-desktop "C:\Program Files\Docker\Docker\resources"'';
 
+  # wsl-vpnkit service
+  systemd.services.wsl-vpnkit = {
+      enable = true;
+      description = "WSL VPNKit Service";
+      after = ["newtwork.target"];
+  
+      serviceConfig = {
+          ExecStart = "${pkgs.wsl-vpnkit}/bin/wsl-vpnkit";
+          Restart = "always";
+          KillMode = "mixed";
+      };
+  
+  };
+
+
   # ai tools don't have purely free licenses.
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "copilot.vim"
@@ -74,4 +89,8 @@
 
   nix.optimise.automatic =  true;
   nix.optimise.dates = ["08:30"];
+
+  # download settings
+  nix.settings.download-attempts = 10;
+  nix.settings.stalled-download-timeout = 300;
 }
