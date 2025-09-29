@@ -83,11 +83,6 @@ in
         ];
     };
 
-    # browser configuration
-    programs.firefox = {
-        enable = true;
-    };
-
     # sops configuration
     sops = {
         age.keyFile = "/home/nixos/dotfiles/home/users/work-wsl/keys.txt";
