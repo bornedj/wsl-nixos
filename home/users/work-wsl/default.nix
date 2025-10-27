@@ -41,6 +41,7 @@ in
         aws-azure-login
         awscli2
         helm-dashboard
+        kubernetes-helm-wrapped
 
         # java utils
         jdt-language-server
