@@ -40,7 +40,7 @@ in
         kubectl
         aws-azure-login
         awscli2
-        helm
+        helm-dashboard
 
         # java utils
         jdt-language-server
