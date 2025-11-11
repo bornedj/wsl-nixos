@@ -19,6 +19,13 @@ local config = {
                     "java.awt.*",
                     "jdk.*", "sun.*",
                 }
+            },
+            jdt = {
+                ls = {
+                    lombokSupport = {
+                        enabled = true
+                    }
+                }
             }
         }
     },
