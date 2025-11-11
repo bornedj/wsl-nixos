@@ -25,6 +25,9 @@
             ngcc="ng cache clean";
             cc="npm cache clean -f && ng cache clean";
 
+            # eclipse clean
+            ec="mvn clean eclipse:clean eclipse:eclipse";
+
             gen_dms_jwt="docker run --rm --name jwt-cli bitnami/jwt-cli:latest encode -S b64:$JWT -P 'auth=[\"ROLE_ADMIN\"]' -s anonymous -A HS512 --no-typ -e=$(date -d '+1 days' +%s) | clip.exe";
             gen_doc="rm -rf public/ && npm run doc";
 
