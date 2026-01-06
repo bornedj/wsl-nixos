@@ -3,35 +3,35 @@
 vim.g.dbs = {
     {
         name = "postgres-dev-corr",
-        url = os.execute("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.DEV.CORR_USER_PASS_URL")
+        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.DEV.CORR_USER_PASS_URL | tr -d '\"\n'")
     },
     {
         name = "postgres-qa-corr",
-        url = os.execute("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.QA.CORR_USER_PASS_URL")
+        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.QA.CORR_USER_PASS_URL | tr -d '\"\n'")
     },
     {
         name = "postgres-stage-corr",
-        url = os.execute("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.STAGE.CORR_USER_PASS_URL")
+        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.STAGE.CORR_USER_PASS_URL | tr -d '\"\n'")
     },
     {
         name = "postgres-prod-corr",
-        url = os.execute("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.PROD.CORR_USER_PASS_URL")
+        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.PROD.CORR_USER_PASS_URL | tr -d '\"\n'")
     },
     {
         name = "ISBUM-dev",
-        url = os.execute("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.DEV.ISBUM_USER_PASS_URL")
+        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.DEV.ISUBM_USER_PASS_URL | tr -d '\"\n'")
     },
     {
         name = "ISBUM-qa",
-        url = os.execute("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.QA.ISBUM_USER_PASS_URL")
+        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.QA.ISUBM_USER_PASS_URL | tr -d '\"\n'")
     },
     {
         name = "ISBUM-stage",
-        url = os.execute("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.STAGE.ISBUM_USER_PASS_URL")
+        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.STAGE.ISUBM_USER_PASS_URL | tr -d '\"\n'")
     },
     {
         name = "ISBUM-prod",
-        url = os.execute("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.PROD.ISBUM_USER_PASS_URL")
+        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.PROD.ISUBM_USER_PASS_URL | tr -d '\"\n'")
     },
 }
 
