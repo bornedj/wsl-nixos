@@ -53,6 +53,9 @@ in
         # oracle
         oracle-instantclient
 
+        # postgres
+        postgresql_17
+
         # secrets
         sops
 
