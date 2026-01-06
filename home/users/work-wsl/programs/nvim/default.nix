@@ -44,8 +44,13 @@
             cmp-nvim-lsp
             nvim-web-devicons
             vim-dadbod
-            vim-dadbod-ui
+            # vim-dadbod-ui
             vim-dadbod-completion
+            {
+                plugin = vim-dadbod-ui;
+                type = "lua";
+                config = builtins.readFile ./plugins/dadbod.lua;
+            }
             {
                 plugin = claude-code-nvim;
                 type = "lua";
