@@ -68,5 +68,12 @@ cmp.setup({
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ['<C-Space>'] = cmp.mapping.complete(),
-    })
+    }),
+})
+
+cmp.setup.filetype({"sql"}, {
+    sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" }
+    }
 })
