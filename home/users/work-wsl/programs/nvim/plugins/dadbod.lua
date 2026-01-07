@@ -35,4 +35,14 @@ vim.g.dbs = {
     },
 }
 
+
 vim.keymap.set("n", "<leader>db", "<cmd>silent DBUIToggle<CR>")
+
+-- Override dadbod-ui keymappings with vim-tmux-navigator
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "dbui",
+    callback = function()
+        vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", { buffer = true })
+        vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { buffer = true })
+    end,
+})
