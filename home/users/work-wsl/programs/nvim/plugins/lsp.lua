@@ -56,7 +56,7 @@ local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
     sources = {
-        {name = 'nvim_lsp'}
+        {name = 'nvim_lsp'},
     },
     snippet = {
         expand = function(args)
@@ -71,7 +71,7 @@ cmp.setup({
     }),
 })
 
-cmp.setup.filetype({"sql"}, {
+cmp.setup.filetype({ "sql", "plsql", "mysql" }, {
     sources = {
         { name = "vim-dadbod-completion" },
         { name = "buffer" }
