@@ -34,6 +34,7 @@ vim.g.dbs = {
         url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.PROD.ISUBM_USER_PASS_URL | tr -d '\"\n'")
     },
 }
+vim.g.db_ui_winwidth = 50
 
 
 vim.keymap.set("n", "<leader>db", "<cmd>silent DBUIToggle<CR>")
