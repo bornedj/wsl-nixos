@@ -47,3 +47,11 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { buffer = true })
     end,
 })
+
+-- disable folding
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "dbout",
+    callback = function()
+        vim.wo.foldenable = false
+    end,
+})
