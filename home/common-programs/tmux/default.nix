@@ -8,7 +8,7 @@
         keyMode = "vi";
         mouse = true;
         clock24 = true;
-        shell = "zsh";
+        shell = "/etc/profiles/per-user/nixos/bin/zsh";
 
         plugins = with pkgs.tmuxPlugins; [
             vim-tmux-navigator
