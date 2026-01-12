@@ -60,6 +60,8 @@
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
 
+
+  nix.settings.trusted-users = [ "root" "nixos" ];
   users.users.nixos = {
       isNormalUser = true;
       name = "nixos";
