@@ -48,10 +48,31 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- add row limit to the oracle list helper
+vim.g.db_ui_table_helpers = {
+    oracle = {
+        List = [[
+SET linesize 4000;
+SET pagesize 4000;
+
+COLUMN column_name FORMAT a20;
+COLUMN constraint_type FORMAT a20;
+COLUMN index_name FORMAT a20;
+COLUMN owner FORMAT a20;
+COLUMN table_name FORMAT a20;
+
+SELECT * FROM "{dbname}"."{table}"
+WHERE ROWNUM <=200
+;
+        ]]
+    }
+}
+
 -- disable folding
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "dbout",
     callback = function()
         vim.wo.foldenable = false
+        vim.wo.wrap = false
     end,
 })
