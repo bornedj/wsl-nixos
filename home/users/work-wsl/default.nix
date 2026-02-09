@@ -47,7 +47,6 @@ in
         jdt-language-server
 
         # commit lint
-        ggshield
         nodePackages.prettier
 
         # oracle
