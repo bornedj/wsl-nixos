@@ -7,4 +7,4 @@ if [ -f .git/hooks/pre-commit ]; then
     fi
 fi
 
-ggshield secret scan pre-commit "$@"
+ggshield.exe secret scan pre-commit "$@"
