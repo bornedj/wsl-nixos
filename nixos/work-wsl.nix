@@ -95,4 +95,6 @@
   # download settings
   nix.settings.download-attempts = 10;
   nix.settings.stalled-download-timeout = 300;
+
+  time.timeZone = "America/New_York";
 }
