@@ -27,9 +27,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- server configurations
-require'lspconfig'.ts_ls.setup({})
-require'lspconfig'.eslint.setup({})
-require'lspconfig'.rust_analyzer.setup({
+vim.lsp.enable('ts_ls', {})
+vim.lsp.enable('eslint', {})
+vim.lsp.enable('rust_analyzer', {
     settings = {
         ['rust_analyzer'] = {
             cargo = {
@@ -40,17 +40,17 @@ require'lspconfig'.rust_analyzer.setup({
         }
     }
 })
-require'lspconfig'.lua_ls.setup({})
-require'lspconfig'.angularls.setup({})
-require'lspconfig'.cssls.setup({})
-require'lspconfig'.emmet_ls.setup({})
-require'lspconfig'.jsonls.setup({})
-require'lspconfig'.html.setup({})
-require'lspconfig'.pyright.setup({})
-require'lspconfig'.bashls.setup({})
-require'lspconfig'.yamlls.setup({})
-require'lspconfig'.dockerls.setup({})
-require'lspconfig'.nixd.setup({})
+vim.lsp.enable('lua_ls', {})
+vim.lsp.enable('angularls', {})
+vim.lsp.enable('cssls', {})
+vim.lsp.enable('emmet_ls', {})
+vim.lsp.enable('jsonls', {})
+vim.lsp.enable('html', {})
+vim.lsp.enable('pyright', {})
+vim.lsp.enable('bashls', {})
+vim.lsp.enable('yamlls', {})
+vim.lsp.enable('dockerls', {})
+vim.lsp.enable('nixd', {})
 
 -- completion setup
 local cmp = require('cmp')
