@@ -27,7 +27,7 @@
             angular-language-server
             lua-language-server
             emmet-ls
-            dockerfile-language-server-nodejs
+            dockerfile-language-server
             yaml-language-server
             pyright
             nixd

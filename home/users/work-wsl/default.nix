@@ -65,9 +65,11 @@ in
     # home git configuration
     programs.git = {
         enable = true;
-        userName = "Daniel Borne";
-        userEmail = "daniel.borne@kinsaleins.com";
-        extraConfig = {
+        settings = {
+            user = {
+                name = "Daniel Borne";
+                email = "daniel.borne@kinsaleins.com";
+            };
             core = {
                 symlinks = false;
             };
