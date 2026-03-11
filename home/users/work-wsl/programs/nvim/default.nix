@@ -21,7 +21,6 @@
 
         extraPackages = with pkgs; [
             nodePackages.typescript-language-server
-            nodePackages.vscode-langservers-extracted
             nodePackages.bash-language-server
             terraform-ls
             angular-language-server
