@@ -57,7 +57,7 @@
         sessionVariables = {
             M2_HOME="~/.m2/";
             M2="$(which mvn)";
-            PATH="$PATH:$M2:~/.npm/bin";
+            PATH="$M2:~/.npm/bin:$PATH";
             NODE_PATH="~/.npm/bin";
             GATLING_HOME="/mnt/c/Users/daniel.borne/gatling/gatling-charts-highcharts-bundle-3.9.5";
             GATLING_RECORD=''$GATLING_HOME"/bin/recorder.sh"'';
