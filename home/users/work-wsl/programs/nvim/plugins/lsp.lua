@@ -27,10 +27,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- server configurations
--- eslint, html, and css are all coming from vscode-langservers-extracted, which has an issue with the eslint server
--- trying just angularls for the time being
 vim.lsp.enable('ts_ls', {})
--- vim.lsp.enable('eslint', {})
+vim.lsp.enable('eslint', {})
 vim.lsp.enable('rust_analyzer', {
     settings = {
         cargo = {
@@ -42,10 +40,10 @@ vim.lsp.enable('rust_analyzer', {
 })
 vim.lsp.enable('lua_ls', {})
 vim.lsp.enable('angularls', {})
--- vim.lsp.enable('cssls', {})
+vim.lsp.enable('cssls', {})
 vim.lsp.enable('emmet_ls', {})
 vim.lsp.enable('jsonls', {})
--- vim.lsp.enable('html', {})
+vim.lsp.enable('html', {})
 vim.lsp.enable('pyright', {})
 vim.lsp.enable('bashls', {})
 vim.lsp.enable('yamlls', {})
