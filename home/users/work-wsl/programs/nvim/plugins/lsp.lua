@@ -31,9 +31,6 @@ vim.lsp.enable('ts_ls', {})
 -- bug with eslint running in html
 vim.lsp.config('eslint', {
     filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
-    settings = {
-        filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
-    }
 })
 vim.lsp.enable('eslint')
 vim.lsp.enable('rust_analyzer', {
