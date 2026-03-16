@@ -49,9 +49,11 @@
 
         initContent = ''
             extract_secret() {
-                sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq $1 | tr -d '"' | clip.exe 
+                sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq $1 | tr -d '"' | clip.exe
             }
             eval "$(zoxide init zsh)"
+            # remove windows nodejs
+            export PATH="''${PATH//\/mnt\/c\/Program Files\/nodejs/}"
         '';
 
         sessionVariables = {
