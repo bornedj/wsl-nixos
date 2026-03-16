@@ -28,7 +28,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- server configurations
 vim.lsp.enable('ts_ls', {})
-vim.lsp.enable('eslint', {})
+
+-- ESLint LSP with filetype filtering
+lspconfig.eslint.setup({
+    filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
+})
 vim.lsp.enable('rust_analyzer', {
     settings = {
         cargo = {
