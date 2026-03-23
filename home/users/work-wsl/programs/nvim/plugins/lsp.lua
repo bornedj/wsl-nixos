@@ -45,6 +45,10 @@ vim.lsp.enable('rust_analyzer', {
 vim.lsp.enable('lua_ls', {})
 vim.lsp.enable('angularls', {})
 vim.lsp.enable('cssls', {})
+vim.lsp.config('emmet_ls', {
+    --  current file types plus xml
+    filetypes = { "astro", "css", "eruby", "html", "htmlangular", "htmldjango", "javascriptreact", "less", "pug", "sass", "scss", "svelte", "templ", "typescriptreact", "vue", "xml" }
+})
 vim.lsp.enable('emmet_ls', {})
 vim.lsp.enable('jsonls', {})
 vim.lsp.enable('html', {})
