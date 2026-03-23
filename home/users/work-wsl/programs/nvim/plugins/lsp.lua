@@ -54,6 +54,66 @@ vim.lsp.enable('yamlls', {})
 vim.lsp.enable('dockerls', {})
 vim.lsp.enable('nixd', {})
 vim.lsp.enable('terraformls', {})
+
+
+vim.lsp.config('jdtls', {
+    settings = {
+        java = {
+            configuration = {
+            },
+            completion = {
+                filteredTypes = {
+                    "com.sun.*",
+                    "io.micrometer.shaded.*",
+                    "java.awt.*",
+                    "jdk.*", "sun.*",
+                }
+            },
+            jdt = {
+                ls = {
+                    lombokSupport = {
+                        enabled = true
+                    }
+                }
+            }
+        }
+    },
+    on_attach = function()
+        print("starting nvim dap")
+        -- require('jdtls.dap').setup_dap_main_class_configs()
+        require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+        --breakpoints
+        vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
+        vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
+        vim.keymap.set('n', '<Leader>lp',
+            function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+        vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
+        vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
+        vim.keymap.set('n', '<Leader>cb', function() require('dap').clear_breakpoints() end)
+
+        -- breakpoint motions
+        vim.keymap.set('n', '<leader>dc', function() require('dap').continue() end)
+        vim.keymap.set('n', '<leader>dj', function() require('dap').step_over() end)
+        vim.keymap.set('n', '<leader>dk', function() require('dap').step_into() end)
+        vim.keymap.set('n', '<leader>do', function() require('dap').step_out() end)
+
+        -- widgets
+        vim.keymap.set({ 'n', 'v' }, '<Leader>dh', function()
+            require('dap.ui.widgets').hover()
+        end)
+        vim.keymap.set({ 'n', 'v' }, '<Leader>dp', function()
+            require('dap.ui.widgets').preview()
+        end)
+        vim.keymap.set('n', '<Leader>df', function()
+            local widgets = require('dap.ui.widgets')
+            widgets.centered_float(widgets.frames)
+        end)
+        vim.keymap.set('n', '<Leader>ds', function()
+            local widgets = require('dap.ui.widgets')
+            widgets.centered_float(widgets.scopes)
+        end)
+    end
+})
 vim.lsp.enable('jdtls', {})
 
 -- completion setup
