@@ -54,6 +54,7 @@
             eval "$(zoxide init zsh)"
             # remove windows nodejs
             export PATH="''${PATH//\/mnt\/c\/Program Files\/nodejs/}"
+            export PATH="''${PATH//\/mnt\/c\/Users\/daniel.borne\/AppData\/Roaming\/npm/}"
         '';
 
         sessionVariables = {
@@ -66,6 +67,7 @@
             GATLING_GUI=''$GATLING_HOME"/bin/gatling.sh"'';
             JAVA_HOME="/etc/profiles/per-user/nixos/lib/openjdk";
             FILECABINET_PATH="\\kv-lin-img-u01\filecabinet\submission\000000001";
+            JAVAX_NET_SSL_TRUSTSTORE = "etc/ssl/certs/ca-certificates.crt";
         };
     };
 }

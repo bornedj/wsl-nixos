@@ -79,6 +79,9 @@
       (builtins.readFile /home/nixos/dotfiles/nixos/trusted.kmi.lan.crt)
   ];
 
+  # fix java certs
+  environment.variables.JAVAX_NET_SSL_TRUSTSTORE = "etc/ssl/certs/ca-certificates.crt";
+
   # garbage collection
   boot.loader.systemd-boot.configurationLimit = 10;
   nix.settings.auto-optimise-store = true;
