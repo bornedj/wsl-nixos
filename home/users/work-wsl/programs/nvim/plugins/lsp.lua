@@ -54,6 +54,7 @@ vim.lsp.enable('yamlls', {})
 vim.lsp.enable('dockerls', {})
 vim.lsp.enable('nixd', {})
 vim.lsp.enable('terraformls', {})
+vim.lsp.enable('jdtls', {})
 
 -- completion setup
 local cmp = require('cmp')
