@@ -59,9 +59,32 @@ vim.lsp.enable('dockerls', {})
 vim.lsp.enable('nixd', {})
 vim.lsp.enable('terraformls', {})
 
+-- java crap (maliciously)
+local workspace_dir = '/mnt/c/Users/daniel.borne/.local/share/eclipse/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local root_markers = { 'gradlew', '.git', 'mvnw', 'pom' }
+
+-- Find the latest Lombok JAR from Maven cache
+local function find_lombok_jar()
+    local lombok_jars = vim.fn.glob(os.getenv('HOME') .. '/.m2/repository/org/projectlombok/lombok/*/lombok-*.jar', 0, 1)
+    if type(lombok_jars) == 'table' and #lombok_jars > 0 then
+        return lombok_jars[#lombok_jars]
+    end
+    return nil
+end
+
+local lombok_jar = find_lombok_jar()
+
+local cmd = {
+    '/etc/profiles/per-user/nixos/bin/jdtls'
+}
+
+if lombok_jar then
+    table.insert(cmd, '--jvm-arg=-javaagent:' .. lombok_jar)
+end
 
 vim.lsp.config('jdtls', {
-    root_dir = require('jdtls.setup').find_root({ 'gradlew', '.git', 'mvnw', 'pom' }),
+    cmd = cmd,
+    root_dir = require('jdtls.setup').find_root(root_markers),
     init_options = {
         bundles = {
             vim.fn.glob(
