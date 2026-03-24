@@ -61,6 +61,13 @@ vim.lsp.enable('terraformls', {})
 
 
 vim.lsp.config('jdtls', {
+    root_dir = require('jdtls.setup').find_root({ 'gradlew', '.git', 'mvnw', 'pom' }),
+    init_options = {
+        bundles = {
+            vim.fn.glob(
+            '~/.local/lib/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar'),
+        }
+    },
     settings = {
         java = {
             configuration = {
