@@ -49,6 +49,12 @@
   
   };
 
+  # reduce journald log size
+  services.journald.extraConfig = ''
+    SystemMaxUse=100M
+    SystemMaxFileSize=100M
+  '';
+
 
   # ai tools don't have purely free licenses.
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
