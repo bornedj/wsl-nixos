@@ -82,7 +82,7 @@
 
   # kinsale certs
   security.pki.certificates = [
-      (builtins.readFile /home/nixos/dotfiles/nixos/trusted.kmi.lan.crt)
+      (builtins.readFile /home/nixos/dotfiles/nixos/trusted.kmi.lan.pem)
   ];
 
   # fix java certs
