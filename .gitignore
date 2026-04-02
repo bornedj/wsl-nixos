@@ -2,5 +2,5 @@
 home/common-programs/tmux/plugins/
 home/**/result
 .config/nvim/init.lua
-**/trusted.kmi.lan.crt
+**/trusted.kmi*
 result
