@@ -7,10 +7,10 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
-    certs.url = "git+file:///home/nixos/gitlab_linux/certs";
+    certs.url = "git+ssh://git@gitlab.com/danielborne/certs.git";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, certs, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nixos-wsl, ... }: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
