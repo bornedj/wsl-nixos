@@ -38,6 +38,7 @@
             fix_forms="rm -rf node_modules/@kinsale/forms && cc && npm i ../kinsale-forms/dist/kinsale-forms/kinsale-forms-17.21.0.tgz --force && npx ng serve -c local";
 
             delete_node_modules="cd ~/gitlab_linux && find -maxdepth 2 -type d | rg node_modules | xargs rm -rf";
+
             vpn_kit="sudo systemctl start wsl-vpnkit.service";
             vpn_kit_off="sudo systemctl stop wsl-vpnkit.service";
         };
@@ -55,6 +56,7 @@
             # remove windows nodejs
             export PATH="''${PATH//\/mnt\/c\/Program Files\/nodejs/}"
             export PATH="''${PATH//\/mnt\/c\/Users\/daniel.borne\/AppData\/Roaming\/npm/}"
+            NPM_PUBLISH_TOKEN="$(cat ${config.sops.secrets.NPM_PUBLISH_TOKEN.path})";
         '';
 
         sessionVariables = {
@@ -67,7 +69,6 @@
             GATLING_GUI=''$GATLING_HOME"/bin/gatling.sh"'';
             JAVA_HOME="/etc/profiles/per-user/nixos/lib/openjdk";
             FILECABINET_PATH="\\kv-lin-img-u01\filecabinet\submission\000000001";
-            NPM_PUBLISH_TOKEN="${config.sops.defaultSymlinkPath}/NPM_PUBLISH_TOKEN";
             JAVAX_NET_SSL_TRUSTSTORE = "etc/ssl/certs/ca-certificates.crt";
         };
     };
