@@ -61,6 +61,24 @@ in
         # claude
         claude.claude
     ];
+
+    # ssh config
+    services.ssh-agent = {
+        enable = true;
+        enableZshIntegration = true;
+    };
+    programs.ssh = {
+        enable = true;
+        enableDefaultConfig = false;
+        matchBlocks = {
+            "kinsale-gitlab" = {
+                host = "gitlab.com github.com";
+                identitiesOnly = true;
+                addKeysToAgent = "yes";
+                identityFile = "~/.ssh/id_ed25519";
+            };
+        };
+    };
     
     # home git configuration
     programs.git = {
