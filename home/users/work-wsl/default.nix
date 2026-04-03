@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 
 let 
     claude = import ../../pkgs/claude-code;
@@ -93,6 +93,12 @@ in
     sops = {
         age.keyFile = "/home/nixos/dotfiles/home/users/work-wsl/keys.txt";
         defaultSopsFile = ../../secrets/kinsale.yaml;
+        defaultSymlinkPath = "/run/user/1000/secrets";
+        defaultSecretsMountPoint = "/run/user/1000/secrets.d";
+
+        secrets.NPM_PUBLISH_TOKEN = {
+            path = "${config.sops.defaultSymlinkPath}/NPM_PUBLISH_TOKEN";
+        };
     };
 
     # github cli configuration

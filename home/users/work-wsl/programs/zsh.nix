@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
     programs.zsh = {
@@ -67,6 +67,7 @@
             GATLING_GUI=''$GATLING_HOME"/bin/gatling.sh"'';
             JAVA_HOME="/etc/profiles/per-user/nixos/lib/openjdk";
             FILECABINET_PATH="\\kv-lin-img-u01\filecabinet\submission\000000001";
+            NPM_PUBLISH_TOKEN="${config.sops.defaultSymlinkPath}/NPM_PUBLISH_TOKEN";
             JAVAX_NET_SSL_TRUSTSTORE = "etc/ssl/certs/ca-certificates.crt";
         };
     };
