@@ -21,12 +21,13 @@
 
         extraPackages = with pkgs; [
             nodePackages.typescript-language-server
-            nodePackages.vscode-langservers-extracted
             nodePackages.bash-language-server
+            nodePackages.vscode-langservers-extracted
+            terraform-ls
             angular-language-server
             lua-language-server
             emmet-ls
-            dockerfile-language-server-nodejs
+            dockerfile-language-server
             yaml-language-server
             pyright
             nixd
@@ -43,8 +44,18 @@
             cmp-nvim-lsp
             nvim-web-devicons
             vim-dadbod
-            vim-dadbod-ui
+            # vim-dadbod-ui
             vim-dadbod-completion
+            {
+                plugin = vim-dadbod-ui;
+                type = "lua";
+                config = builtins.readFile ./plugins/dadbod.lua;
+            }
+            {
+                plugin = claude-code-nvim;
+                type = "lua";
+                config = builtins.readFile ./plugins/claude-code.lua;
+            }
             {
                 plugin = vim-fugitive;
                 type = "lua";

@@ -1,8 +1,13 @@
 require("obsidian").setup {
+    legacy_commands = false,
     workspaces = {
         {
             name = "personal",
             path = "~/obsidian/personal",
+        },
+        {
+            name = "ess",
+            path = "~/obsidian/ess",
         },
         {
             name = "architecture",

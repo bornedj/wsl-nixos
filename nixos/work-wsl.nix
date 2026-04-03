@@ -22,6 +22,9 @@
         { src = "${su}/bin/groupadd"; }
         { src = "${su}/bin/usermod"; }
     ];
+    # wslConf = {
+    #     network.generateResolvConf = false;
+    # };
   };
   virtualisation.docker = {
     enable = true;
@@ -32,14 +35,39 @@
   # patch the script 
   systemd.services.docker-desktop-proxy.script = lib.mkForce ''${config.wsl.wslConf.automount.root}/wsl/docker-desktop/docker-desktop-user-distro proxy --docker-desktop-root ${config.wsl.wslConf.automount.root}/wsl/docker-desktop "C:\Program Files\Docker\Docker\resources"'';
 
-  # copilot doesn't have purely free license.
+  # wsl-vpnkit service
+  systemd.services.wsl-vpnkit = {
+      enable = true;
+      description = "WSL VPNKit Service";
+      after = ["newtwork.target"];
+  
+      serviceConfig = {
+          ExecStart = "${pkgs.wsl-vpnkit}/bin/wsl-vpnkit";
+          Restart = "always";
+          KillMode = "mixed";
+      };
+  
+  };
+
+  # reduce journald log size
+  services.journald.extraConfig = ''
+    SystemMaxUse=100M
+    SystemMaxFileSize=100M
+  '';
+
+
+  # ai tools don't have purely free licenses.
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "copilot.vim"
+    "oracle-instantclient"
+    "claude-code"
   ];
 
   environment.shells = with pkgs; [ zsh ];
   programs.zsh.enable = true;
 
+
+  nix.settings.trusted-users = [ "root" "nixos" ];
   users.users.nixos = {
       isNormalUser = true;
       name = "nixos";
@@ -54,9 +82,28 @@
 
   # kinsale certs
   security.pki.certificates = [
-      (builtins.readFile /home/nixos/dotfiles/nixos/trusted.kmi.lan.crt)
+      (builtins.readFile /home/nixos/dotfiles/nixos/trusted.kmi.lan.pem)
   ];
+
+  # fix java certs
+  environment.variables.JAVAX_NET_SSL_TRUSTSTORE = "etc/ssl/certs/ca-certificates.crt";
+
+  # garbage collection
+  boot.loader.systemd-boot.configurationLimit = 10;
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 1w";
+  };
+
 
   nix.optimise.automatic =  true;
   nix.optimise.dates = ["08:30"];
+
+  # download settings
+  nix.settings.download-attempts = 10;
+  nix.settings.stalled-download-timeout = 300;
+
+  time.timeZone = "America/New_York";
 }

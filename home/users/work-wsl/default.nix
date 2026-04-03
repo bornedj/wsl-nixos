@@ -1,7 +1,7 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, config, ... }:
 
 let 
-    jhipsterOverrides = import ../../pkgs/jhipster;
+    claude = import ../../pkgs/claude-code;
 in
 {
     imports = [
@@ -16,40 +16,60 @@ in
     home.username = "nixos";
     home.homeDirectory = "/home/nixos";
     home.packages = with pkgs; [
-        # rust 
+        # languages 
         rustup
-        zoxide
-        ripgrep
         python3
         nodejs
         lua
-        fzf
-        stow
-        curl
-        age
-        # java
-        jdt-language-server
         jdk
         maven
+
+        # rust cli
+        zoxide
+        ripgrep
+
+        # cli utils
+        fzf
+        curl
+        age
         jq
         yq
         tree
-        jhipsterOverrides.jhipster
         bruno
         deck
         kubectl
-        sops
         aws-azure-login
+        awscli2
+        helm-dashboard
+        kubernetes-helm-wrapped
+
+        # java utils
+        jdt-language-server
+
+        # commit lint
         nodePackages.prettier
-        ggshield
+
+        # oracle
+        oracle-instantclient
+
+        # postgres
+        postgresql_17
+
+        # secrets
+        sops
+
+        # claude
+        claude.claude
     ];
     
     # home git configuration
     programs.git = {
         enable = true;
-        userName = "daniel.borne";
-        userEmail = "daniel.borne@kinsaleins.com";
-        extraConfig = {
+        settings = {
+            user = {
+                name = "Daniel Borne";
+                email = "daniel.borne@kinsaleins.com";
+            };
             core = {
                 symlinks = false;
             };
@@ -59,17 +79,152 @@ in
             push = {
                 autoSetupRemote = "true";
             };
+            init.defaultBranch = "main";
         };
-    };
-
-    # browser configuration
-    programs.firefox = {
-        enable = true;
+        hooks = {
+            pre-commit = ./programs/git/pre-commit;
+        };
+        ignores = [
+            "shell.nix"
+        ];
     };
 
     # sops configuration
     sops = {
         age.keyFile = "/home/nixos/dotfiles/home/users/work-wsl/keys.txt";
         defaultSopsFile = ../../secrets/kinsale.yaml;
+        defaultSymlinkPath = "/run/user/1000/secrets";
+        defaultSecretsMountPoint = "/run/user/1000/secrets.d";
+
+        secrets.NPM_PUBLISH_TOKEN = {
+            path = "${config.sops.defaultSymlinkPath}/NPM_PUBLISH_TOKEN";
+        };
+    };
+
+    # github cli configuration
+    programs.gh = {
+        enable = true;
+        settings = {
+            editor = "nvim";
+        };
+    };
+
+    # claude user configuration
+    home.file.".claude/CLAUDE.md" = {
+        text = /*markdown*/ ''
+            # CLAUDE.md
+
+            This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+            DO NOT MODIFY any CLAUDE.md files. This file is instructions for Claude Code and should not be altered. You may edit any other files, but this file must remain unchanged.
+
+            ## COMMUNICATION PROTOCOL
+
+            You must assume nothing! If you need more information use web-search and web-f, ask me (Daniel Borne) directly, or respond that you do know know. Do not use emojis or other informal language in any documentation or code you produce.
+
+            ## PRIMARY OBJECTIVE
+
+            Your primary objective is to assist in the development and maintenance of the enterprise shared services and libraries for Kinsale Insurance. Our stack is largely comprised of springboot microservices and Angular SPAs and libraries.
+
+            ## Structure
+
+            All repositories are in the ~/gitlab_linux/ directory.
+
+            ## User Details
+
+            My name is Daniel Borne, I am a senior engineer for Kinsale Insurance. I produce and maintain the enterprise shared services and libraries, which includes springboot microservices, Angular SPAs and libraries, and other shared services.
+
+            ## Working with Documentation
+
+            **Making Changes**: You should never commit code. When you feel code is ready to be staged present a summary of your changes for review, I will ultimately decide if they should be committed and what the message will say. Conventional commits messages must be used.
+
+            Never mention yourself, claude code, or any AI tool in commit messages. Never use `co-authored-by` or similar tags/signoffs.
+        '';
+    };
+
+    home.file.".local/bin/tmux-sessionizer.sh" = {
+        source = ../../../.local/bin/tmux-sessionizer.sh;
+        executable = true;
+    };
+    home.file.".local/bin/tmux-session-init.sh" = {
+        source = ../../../.local/bin/tmux-session-init.sh;
+        executable = true;
+    };
+
+    home.file.".npmrc".text = ''
+        prefix="~/.npm"
+        cafile="/etc/ssl/certs/ca-certificates.crt"
+        @kinsale:registry=https://nexus.itp.kinsale.cloud/repository/kinsale-npm-group/
+        //nexus.itp.kinsale.cloud/repository/kinsale-npm-group/:_auth=''${NPM_PUBLISH_TOKEN}
+        registry=https://nexus.itp.kinsale.cloud/repository/kinsale-npm-group/
+        always_auth=true
+    '';
+
+    # k9s configuration
+    programs.k9s = {
+        enable = true;
+        skins = {
+            nord = ./programs/k9s/nord.yaml;
+        };
+        settings = {
+            k9s = {
+              liveViewAutoRefresh = false;
+              screenDumpDir = "/home/nixos/.local/state/k9s/screen-dumps";
+              refreshRate = 2;
+              apiServerTimeout = "15s";
+              maxConnRetry = 5;
+              readOnly = false;
+              noExitOnCtrlC = false;
+              portForwardAddress = "localhost";
+              ui = {
+                enableMouse = false;
+                headless = false;
+                logoless = false;
+                crumbsless = false;
+                splashless = false;
+                reactive = false;
+                noIcons = false;
+                defaultsToFullScreen = false;
+                useFullGVRTitle = false;
+                skin = "nord";
+              };
+              skipLatestRevCheck = false;
+              disablePodCounting = false;
+              shellPod = {
+                image = "busybox:1.35.0";
+                namespace = "default";
+                limits = {
+                    cpu = "100m";
+                    memory = "100Mi";
+                };
+              };
+              imageScans = {
+                enable = false;
+                exclusions = {
+                    namespaces = [];
+                    labels = {};
+                };
+              };
+              logger = {
+                tail = 1000;
+                buffer = 10000;
+                sinceSeconds = -1;
+                textWrap = false;
+                disableAutoscroll = false;
+                showTime = false;
+              };
+              thresholds = {
+                cpu = {
+                    critical = 90;
+                    warn = 70;
+                };
+                memory = {
+                    critical = 90;
+                    warn = 70;
+                    defaultView = "";
+                };
+              };
+            };
+        };
     };
 }

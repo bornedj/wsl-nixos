@@ -155,3 +155,5 @@ alias gen_doc="rm -rf docs/ && npm run doc"
 # source <(ng completion script)
 # . "$HOME/.cargo/env"
 eval "$(zoxide init bash)"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

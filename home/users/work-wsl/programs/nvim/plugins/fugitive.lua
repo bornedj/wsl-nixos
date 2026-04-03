@@ -17,6 +17,11 @@ autocmd("BufWinEnter", {
       vim.cmd.Git('push')
     end, opts)
 
+    -- rebase push
+    vim.keymap.set("n", "<leader>rp", function ()
+        vim.cmd.Git('push --force-with-lease')
+    end, opts)
+
     vim.keymap.set("n", "<leader>P", ":Git pull origin ", opts)
 
     -- NOTE: It allows me to easily set the branch i am pushing and any tracking
