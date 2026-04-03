@@ -11,11 +11,11 @@
         "rev": "73eb9122395d89386a306fafd7bdb02a3ef094d9",
         "revCount": 2,
         "type": "git",
-        "url": "file:///home/nixos/gitlab_linux/certs"
+        "url": "ssh://git@gitlab.com/danielborne/certs.git"
       },
       "original": {
         "type": "git",
-        "url": "file:///home/nixos/gitlab_linux/certs"
+        "url": "ssh://git@gitlab.com/danielborne/certs.git"
       }
     },
     "flake-compat": {
