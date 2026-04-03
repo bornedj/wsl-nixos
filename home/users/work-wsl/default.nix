@@ -1,7 +1,7 @@
 { pkgs, inputs, config, ... }:
 
-let 
-    claude = import ../../pkgs/claude-code;
+let
+    claude = pkgs.callPackage ../../pkgs/claude-code/claude.nix {};
 in
 {
     imports = [
@@ -59,7 +59,7 @@ in
         sops
 
         # claude
-        claude.claude
+        claude
     ];
 
     # ssh config
