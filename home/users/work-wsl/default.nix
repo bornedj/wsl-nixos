@@ -1,7 +1,7 @@
 { pkgs, inputs, config, ... }:
 
-let 
-    claude = import ../../pkgs/claude-code;
+let
+    claude = pkgs.callPackage ../../pkgs/claude-code/claude.nix {};
 in
 {
     imports = [
@@ -59,8 +59,26 @@ in
         sops
 
         # claude
-        claude.claude
+        claude
     ];
+
+    # ssh config
+    services.ssh-agent = {
+        enable = true;
+        enableZshIntegration = true;
+    };
+    programs.ssh = {
+        enable = true;
+        enableDefaultConfig = false;
+        matchBlocks = {
+            "kinsale-gitlab" = {
+                host = "gitlab.com github.com";
+                identitiesOnly = true;
+                addKeysToAgent = "yes";
+                identityFile = "~/.ssh/id_ed25519";
+            };
+        };
+    };
     
     # home git configuration
     programs.git = {
