@@ -90,7 +90,6 @@
 
   # garbage collection
   boot.loader.systemd-boot.configurationLimit = 10;
-  nix.settings.auto-optimise-store = true;
   nix.gc = {
       automatic = true;
       dates = "weekly";
@@ -98,8 +97,10 @@
   };
 
 
-  nix.optimise.automatic =  true;
-  nix.optimise.dates = ["08:30"];
+  # trying auto-optimise in favor of the scheduled gc
+  # nix.optimise.automatic =  true;
+  # nix.optimise.dates = ["08:30"];
+  nix.settings.auto-optimise-store = true;
 
   # download settings
   nix.settings.download-attempts = 10;
