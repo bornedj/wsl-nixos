@@ -57,7 +57,7 @@
             # remove windows nodejs
             export PATH="''${PATH//\/mnt\/c\/Program Files\/nodejs/}"
             export PATH="''${PATH//\/mnt\/c\/Users\/daniel.borne\/AppData\/Roaming\/npm/}"
-            NPM_PUBLISH_TOKEN="$(cat ${config.sops.secrets.NPM_PUBLISH_TOKEN.path})";
+            export NPM_PUBLISH_TOKEN="$(cat ${config.sops.secrets.NPM_PUBLISH_TOKEN.path})";
         '';
 
         sessionVariables = {
