@@ -14,7 +14,7 @@
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = with inputs; { inherit certs; };
         modules = [
           nixos-wsl.nixosModules.default
           ./nixos/work-wsl.nix

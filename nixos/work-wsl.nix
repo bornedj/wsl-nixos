@@ -1,4 +1,4 @@
-{ pkgs, config, lib, inputs, ... }:
+{ pkgs, config, lib, certs, ... }:
 
 {
   nix.settings.experimental-features = ["nix-command" "flakes" ];
@@ -82,7 +82,7 @@
 
   # kinsale certs
   security.pki.certificates = [
-      (builtins.readFile "${inputs.certs}/trusted.kmi.lan.pem")
+      (builtins.readFile "${certs}/trusted.kmi.lan.pem")
   ];
 
   # fix java certs
