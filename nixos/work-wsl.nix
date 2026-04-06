@@ -83,6 +83,8 @@
   # kinsale certs
   security.pki.certificates = [
       (builtins.readFile "${certs}/trusted.kmi.lan.pem")
+      (builtins.readFile "${certs}/trusted.kmi.lan.cer")
+      (builtins.readFile "${certs}/trusted.kmi.lan.crt")
   ];
 
   # fix java certs
