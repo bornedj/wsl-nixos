@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, ... }:
+{ pkgs, inputs, config, lib, ... }:
 
 let
     claude = pkgs.callPackage ../../pkgs/claude-code/claude.nix {};
@@ -169,14 +169,16 @@ in
         executable = true;
     };
 
-    home.file.".npmrc".text = ''
-        prefix="~/.npm"
-        cafile="/etc/ssl/certs/ca-certificates.crt"
-        @kinsale:registry=https://nexus.itp.kinsale.cloud/repository/kinsale-npm-group/
-        //nexus.itp.kinsale.cloud/repository/kinsale-npm-group/:_auth=''${NPM_PUBLISH_TOKEN}
-        registry=https://nexus.itp.kinsale.cloud/repository/kinsale-npm-group/
-        always_auth=true
-    '';
+    home.file.".npmrc".text = lib.generators.toINIWithGlobalSection {} {
+        globalSection = {
+            prefix = "~/.npm";
+            cafile = "/etc/ssl/certs/ca-certificates.crt";
+            registry = "https://nexus.itp.kinsale.cloud/repository/kinsale-npm-group/";
+            auth-type = "legacy";
+            "@kinsale:registry" = "https://nexus.itp.kinsale.cloud/repository/kinsale-npm-group/";
+            "//nexus.itp.kinsale.cloud/repository/kinsale-npm-group/:_auth" ="\${NPM_PUBLISH_TOKEN}";
+        };
+    };
 
     # k9s configuration
     programs.k9s = {
