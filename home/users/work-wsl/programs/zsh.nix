@@ -31,8 +31,9 @@
             gen_dms_jwt="docker run --rm --name jwt-cli bitnami/jwt-cli:latest encode -S b64:$JWT -P 'auth=[\"ROLE_ADMIN\"]' -s anonymous -A HS512 --no-typ -e=$(date -d '+1 days' +%s) | clip.exe";
             gen_doc="rm -rf public/ && npm run doc";
 
-            # impure as I'm using an abosulte path to my cert file
-            # need to research how I can add copy this file to the nix store so that I can use a relative path
+            # --sudo used as ssh keys are configured for the user.
+            # Using sudo to run as the root meant losing the keys which access
+            # the private repo where the certs are hosted
             update = "cd ~/dotfiles && nixos-rebuild switch --flake .#nixos --sudo";
 
             fix_forms="rm -rf node_modules/@kinsale/forms && cc && npm i ../kinsale-forms/dist/kinsale-forms/kinsale-forms-17.21.0.tgz --force && npx ng serve -c local";
