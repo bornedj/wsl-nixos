@@ -83,12 +83,11 @@
   # kinsale certs
   security.pki.certificates = [
       (builtins.readFile "${certs}/trusted.kmi.lan.pem")
-      (builtins.readFile "${certs}/trusted.kmi.lan.cer")
       (builtins.readFile "${certs}/trusted.kmi.lan.crt")
   ];
 
   # fix java certs
-  environment.variables.JAVAX_NET_SSL_TRUSTSTORE = "etc/ssl/certs/ca-certificates.crt";
+  environment.variables.JAVAX_NET_SSL_TRUSTSTORE = "/etc/ssl/certs/ca-certificates.crt";
 
   # garbage collection
   boot.loader.systemd-boot.configurationLimit = 10;
