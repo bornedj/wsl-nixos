@@ -42,6 +42,10 @@
 
             vpn_kit="sudo systemctl start wsl-vpnkit.service";
             vpn_kit_off="sudo systemctl stop wsl-vpnkit.service";
+
+            # open a nix shell with zsh
+            nix-shell = "nix-shell --command $SHELL";
+
         };
 
         profileExtra = ''
