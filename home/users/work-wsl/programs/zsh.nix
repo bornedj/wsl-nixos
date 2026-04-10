@@ -39,6 +39,7 @@
             fix_forms="rm -rf node_modules/@kinsale/forms && cc && npm i ../kinsale-forms/dist/kinsale-forms/kinsale-forms-17.21.0.tgz --force && npx ng serve -c local";
 
             delete_node_modules="cd ~/gitlab_linux && find -maxdepth 2 -type d | rg node_modules | xargs rm -rf";
+            delete_old_nix_generations="sudo nix-env --delete-generations -p /nix/var/nix/profiles/system 1d";
 
             vpn_kit="sudo systemctl start wsl-vpnkit.service";
             vpn_kit_off="sudo systemctl stop wsl-vpnkit.service";
