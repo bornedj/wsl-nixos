@@ -87,7 +87,7 @@ vim.keymap.set("n", "<leader>ln", function()
 end)
 
 -- copy the file name to the unamed register
-vim.keymap.set("n", "<leader>cfn", '<cmd>silent let @+" = expand("%:t")<CR>')
+vim.keymap.set("n", "<leader>cfn", '<cmd>silent let @+ = expand("%:t")<CR>')
 
 -- copy current buffer file path to the system clipboard
 vim.keymap.set("n", "<leader>cfp", '<cmd>silent let @+ = expand("%:p")<CR>')
