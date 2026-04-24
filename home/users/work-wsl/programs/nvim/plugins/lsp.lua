@@ -30,10 +30,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.lsp.enable('ts_ls', {})
 -- bug with eslint running in html
 -- need to do some debugging on who eslint finds the workspace root
--- vim.lsp.config('eslint', {
---     filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
--- })
--- vim.lsp.enable('eslint')
+vim.lsp.config('eslint', {
+    filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
+})
+vim.lsp.enable('eslint')
 vim.lsp.enable('rust_analyzer', {
     settings = {
         cargo = {
