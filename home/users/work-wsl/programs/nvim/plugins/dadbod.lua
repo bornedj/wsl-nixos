@@ -35,7 +35,7 @@ vim.g.dbs = {
     },
 }
 vim.g.db_ui_winwidth = 50
-
+vim.g.db_ui_trim = 40
 
 vim.keymap.set("n", "<leader>db", "<cmd>silent DBUIToggle<CR>")
 

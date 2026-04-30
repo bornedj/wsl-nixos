@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let 
+    vim-dadbod-ui-local = pkgs.callPackage ../../../../pkgs/vim-dadbod-local/vim-dadbod-ui.nix {};
+in
 {
     home.packages = with pkgs; [
         gcc
@@ -47,7 +50,7 @@
             # vim-dadbod-ui
             vim-dadbod-completion
             {
-                plugin = vim-dadbod-ui;
+                plugin = vim-dadbod-ui-local;
                 type = "lua";
                 config = builtins.readFile ./plugins/dadbod.lua;
             }
