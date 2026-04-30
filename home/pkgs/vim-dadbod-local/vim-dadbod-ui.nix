@@ -7,7 +7,7 @@ pkgs.vimUtils.buildVimPlugin {
     src = pkgs.fetchFromGitHub {
         owner = "bornedj";
         repo = "vim-dadbod-ui";
-        rev = "HEAD";
+        rev = "fix/oracle-table-name-truncation-237";
         hash = "sha256-BLlmegQmBDY42vefhwR6xNpf1Ot0yaQ2ulwsu4UlE1Q=";
     };
 }
