@@ -31,6 +31,11 @@ vim.lsp.enable('ts_ls', {})
 -- bug with eslint running in html
 -- need to do some debugging on who eslint finds the workspace root
 vim.lsp.config('eslint', {
+    settings = {
+        workingDirectory = {
+            mode = 'location'
+        }
+    },
     filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
 })
 vim.lsp.enable('eslint')
