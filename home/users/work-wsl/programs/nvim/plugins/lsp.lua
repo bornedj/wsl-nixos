@@ -66,7 +66,6 @@ vim.lsp.enable('nixd', {})
 vim.lsp.enable('terraformls', {})
 
 -- java crap (maliciously)
-local workspace_dir = '/mnt/c/Users/daniel.borne/.local/share/eclipse/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local root_markers = { 'gradlew', '.git', 'mvnw', 'pom' }
 
 -- Find the latest Lombok JAR from Maven cache
