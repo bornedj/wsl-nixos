@@ -52,7 +52,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.g.db_ui_table_helpers = {
     oracle = {
         List = string.gsub([[
-SET linesize 4000;
 SET pagesize 4000;
 
 COLUMN column_name FORMAT a~;
