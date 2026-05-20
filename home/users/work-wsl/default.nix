@@ -48,8 +48,6 @@ in
 
         # commit lint
         nodePackages.prettier
-        lint-staged
-        commitlint
 
         # oracle
         oracle-instantclient
