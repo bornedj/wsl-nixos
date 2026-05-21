@@ -1,8 +1,5 @@
 { pkgs, inputs, config, lib, ... }:
 
-let
-    claude = pkgs.callPackage ../../pkgs/claude-code/claude.nix {};
-in
 {
     imports = [
         ../../common-programs/tmux
@@ -59,7 +56,8 @@ in
         sops
 
         # claude
-        claude
+        # claude
+        claude-code
     ];
 
     # ssh config
