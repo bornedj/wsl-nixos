@@ -29,6 +29,6 @@ autocmd("BufWinEnter", {
     -- needed if i did not set the branch up correctly
     vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
 
-    vim.keymap.set("n", "<leader>fap", ":Git fetch -a --prune --tags", opts);
+    vim.keymap.set("n", "<leader>fap", ":Git fetch -a --prune --tags -f", opts);
   end,
 })
