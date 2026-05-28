@@ -96,6 +96,9 @@
                 autoSetupRemote = "true";
             };
             init.defaultBranch = "main";
+            alias = {
+                ri = "!git rebase -i $(git merge-base @ $(git branch -r | rg -m1 -o 'origin/(main|master)$' | cut -d/ -f2))";
+            };
         };
         hooks = {
             pre-commit = ./programs/git/pre-commit;

@@ -21,7 +21,7 @@ autocmd("BufWinEnter", {
     vim.keymap.set("n", "<leader>rp", function ()
         vim.cmd.Git('push --force-with-lease')
     end, opts)
-    vim.keymap.set("n", "<leader>ri", ":Git rebase --root -i", opts)
+    vim.keymap.set("n", "<leader>ri", ":Git ri", opts)
 
     vim.keymap.set("n", "<leader>P", ":Git pull origin ", opts)
 
