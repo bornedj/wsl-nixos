@@ -22,9 +22,6 @@
         { src = "${su}/bin/groupadd"; }
         { src = "${su}/bin/usermod"; }
     ];
-    # wslConf = {
-    #     network.generateResolvConf = false;
-    # };
   };
   virtualisation.docker = {
     enable = true;
@@ -88,6 +85,19 @@
 
   # fix java certs
   environment.variables.JAVAX_NET_SSL_TRUSTSTORE = "/etc/ssl/certs/ca-certificates.crt";
+  environment.variables.NIX_SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
+
+  # fix for codeberg installations
+  # since it relies on gitfetch to
+  # build in a nix sandbox like env
+  nixpkgs.overlays = [(final: prev: {
+      cacert = prev.cacert.override {
+          extraCertificateFiles = [
+            "${certs}/trusted.kmi.lan.pem"
+            "${certs}/trusted.kmi.lan.crt"
+          ];
+      };
+  })];
 
   # garbage collection
   boot.loader.systemd-boot.configurationLimit = 10;
