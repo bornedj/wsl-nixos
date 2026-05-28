@@ -11,21 +11,23 @@ in
     # home nvim configuration
     programs.neovim = {
         enable = true;
+        withRuby = false;
+        withPython3 = false;
         defaultEditor = true;
         viAlias = true;
         vimAlias = true;
         vimdiffAlias = true;
         withNodeJs = true;
 
-        extraLuaConfig = ''
+        initLua = ''
             ${builtins.readFile ./set.lua}
             ${builtins.readFile ./remap.lua}
         '';
 
         extraPackages = with pkgs; [
-            nodePackages.typescript-language-server
-            nodePackages.bash-language-server
-            nodePackages.vscode-langservers-extracted
+            typescript-language-server
+            bash-language-server
+            vscode-langservers-extracted
             terraform-ls
             angular-language-server
             lua-language-server
@@ -34,6 +36,7 @@ in
             yaml-language-server
             pyright
             nixd
+            tree-sitter # cli doesn't ship with the grammars anymore
         ];
 
         plugins = with pkgs.vimPlugins; [
@@ -72,7 +75,7 @@ in
             {
                 # managing parsers itself, there's an open issue around doing it with nix
                 type = "lua";
-                plugin = nvim-treesitter;
+                plugin = nvim-treesitter.withAllGrammars;
                 config = builtins.readFile ./plugins/treesitter.lua;
             }
             {
@@ -94,11 +97,6 @@ in
                 type = "lua";
                 plugin = copilot-vim;
                 config = builtins.readFile ./plugins/copilot.lua;
-            }
-            {
-                type = "lua";
-                plugin = fugitive;
-                config = builtins.readFile ./plugins/fugitive.lua;
             }
             {
                 type = "lua";

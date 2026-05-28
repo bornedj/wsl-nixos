@@ -20,9 +20,9 @@
         '';
 
         extraPackages = with pkgs; [
-            nodePackages.typescript-language-server
-            nodePackages.vscode-langservers-extracted
-            nodePackages.bash-language-server
+            typescript-language-server
+            vscode-langservers-extracted
+            bash-language-server
             nixd
             lua-language-server
             emmet-ls

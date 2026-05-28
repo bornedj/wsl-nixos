@@ -44,7 +44,7 @@
         jdt-language-server
 
         # commit lint
-        nodePackages.prettier
+        prettier
 
         # oracle
         oracle-instantclient
@@ -63,14 +63,19 @@
     # ssh config
     services.ssh-agent = {
         enable = true;
-        enableZshIntegration = true;
     };
     programs.ssh = {
         enable = true;
         enableDefaultConfig = false;
-        matchBlocks = {
+        settings = {
             "kinsale-gitlab" = {
                 host = "gitlab.com github.com";
+                identitiesOnly = true;
+                addKeysToAgent = "yes";
+                identityFile = "~/.ssh/id_ed25519";
+            };
+            "codeberg" = {
+                host = "codeberg.org";
                 identitiesOnly = true;
                 addKeysToAgent = "yes";
                 identityFile = "~/.ssh/id_ed25519";
