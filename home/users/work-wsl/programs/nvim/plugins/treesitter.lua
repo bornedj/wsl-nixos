@@ -5,10 +5,9 @@ require('nvim-treesitter').setup({
     },
 })
 
-local ft_to_parser = require("nvim-treesitter.parsers")
-ft_to_parser.mdx = "markdown"
-ft_to_parser.sh = "bash"
-ft_to_parser.java = "java"
+vim.treesitter.language.register("markdown", "mdx")
+vim.treesitter.language.register("bash", "sh")
+vim.treesitter.language.register("java", "java")
 
 vim.filetype.add({
     extension = {
