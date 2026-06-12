@@ -6,15 +6,24 @@ vim.fn.mkdir(parser_install_dir, "p")
 vim.opt.runtimepath:append(parser_install_dir)
 
 require('nvim-treesitter').setup({
-    ensure_installed = { "javascript", "typescript", "rust", "c", "lua", "vimdoc", "nix", "bash" },
-    sync_install = false,
     auto_install = true,
     highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
     },
-    parser_install_dir = parser_install_dir,
+    install_dir = parser_install_dir,
 })
+
+require('nvim-treesitter').install {
+    "javascript",
+    "typescript",
+    "rust",
+    "lua",
+    "nix",
+    "bash",
+    "java",
+}
+
 local ft_to_parser = require("nvim-treesitter.parsers")
 ft_to_parser.mdx = "markdown"
 ft_to_parser.sh = "bash"
