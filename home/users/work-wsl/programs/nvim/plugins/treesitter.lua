@@ -5,7 +5,7 @@ vim.fn.mkdir(parser_install_dir, "p")
 -- Prevents reinstall of treesitter plugins every boot
 vim.opt.runtimepath:append(parser_install_dir)
 
-require('nvim-treesitter.configs').setup({
+require('nvim-treesitter').setup({
     ensure_installed = { "javascript", "typescript", "rust", "c", "lua", "vimdoc", "nix", "bash" },
     sync_install = false,
     auto_install = true,
