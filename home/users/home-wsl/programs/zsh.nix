@@ -29,6 +29,7 @@
             gen_doc="rm -rf docs/ && npm run doc";
 
             update = "cd ~/config && sudo nixos-rebuild switch --flake .#home-wsl";
+            ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history";
         };
 
         profileExtra = ''
