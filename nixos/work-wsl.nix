@@ -90,14 +90,7 @@
   # fix for codeberg installations
   # since it relies on gitfetch to
   # build in a nix sandbox like env
-  nixpkgs.overlays = [(final: prev: {
-      cacert = prev.cacert.override {
-          extraCertificateFiles = [
-            "${certs}/trusted.kmi.lan.pem"
-            "${certs}/trusted.kmi.lan.crt"
-          ];
-      };
-  })];
+  nix.settings.extra-sandbox-paths = [ "/etc/ssl/certs" ];
 
   # garbage collection
   boot.loader.systemd-boot.configurationLimit = 10;
