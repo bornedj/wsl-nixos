@@ -85,12 +85,11 @@
 
   # fix java certs
   environment.variables.JAVAX_NET_SSL_TRUSTSTORE = "/etc/ssl/certs/ca-certificates.crt";
-  environment.variables.NIX_SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
-
-  # fix for codeberg installations
-  # since it relies on gitfetch to
-  # build in a nix sandbox like env
-  nix.settings.extra-sandbox-paths = [ "/etc/ssl/certs" ];
+  # point NIX_SSL_CERT_FILE to the NixOS-assembled CA bundle (includes Kinsale
+  # CA) so that nix-prefetch-git builds in the sandbox can reach codeberg.org
+  # through the corporate proxy. The caBundle is a Nix store path so it is
+  # accessible inside the sandbox without extra-sandbox-paths.
+  environment.variables.NIX_SSL_CERT_FILE = config.security.pki.caBundle;
 
   # garbage collection
   boot.loader.systemd-boot.configurationLimit = 10;
