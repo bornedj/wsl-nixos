@@ -2,7 +2,7 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl= {
         url = "github:nix-community/NixOS-WSL/main";
         inputs.nixpkgs.follows = "nixpkgs";
