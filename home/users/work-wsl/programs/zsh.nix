@@ -61,6 +61,20 @@
             extract_secret() {
                 sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq $1 | tr -d '"' | clip.exe
             }
+
+            nix-show-drv() {
+                nix --extra-experimental-features 'nix-command flakes' show-derivation "$1" | jq '.[].env | {url, rev}'
+            }
+
+            prefetch-specified-git() {
+                GIT_SSL_CAINFO=/etc/ssl/certs/ca-certificates.crt \
+                NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt \
+                  $(nix-build '<nixpkgs>' -A nix-prefetch-git --no-out-link 2>/dev/null)/bin/nix-prefetch-git \
+                  --url "$1" \
+                  --rev "$2" \
+                  --fetch-submodules
+            }
+
             eval "$(zoxide init zsh)"
             # remove windows nodejs
             export PATH="''${PATH//\/mnt\/c\/Program Files\/nodejs/}"
