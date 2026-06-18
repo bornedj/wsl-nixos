@@ -2,6 +2,22 @@
 -- doing it this way for ease now
 vim.g.dbs = {
     {
+        name = "postgres-dev-erd",
+        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.DEV.ERD_USER_PASS_URL | tr -d '\"\n'")
+    },
+    {
+        name = "postgres-qa-erd",
+        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.QA.ERD_USER_PASS_URL | tr -d '\"\n'")
+    },
+    {
+        name = "postgres-stage-erd",
+        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.STAGE.ERD_USER_PASS_URL | tr -d '\"\n'")
+    },
+    {
+        name = "postgres-prod-erd",
+        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.PROD.ERD_USER_PASS_URL | tr -d '\"\n'")
+    },
+    {
         name = "postgres-dev-corr",
         url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.DEV.CORR_USER_PASS_URL | tr -d '\"\n'")
     },
