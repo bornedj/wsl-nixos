@@ -5,6 +5,7 @@
         ../../common-programs/tmux
         ./programs/zsh.nix
         ./programs/nvim
+        ./programs/dbeaver.nix
         inputs.sops-nix.homeManagerModules.sops
     ];
 
@@ -120,8 +121,12 @@
         defaultSymlinkPath = "/run/user/1000/secrets";
         defaultSecretsMountPoint = "/run/user/1000/secrets.d";
 
-        secrets.NPM_PUBLISH_TOKEN = {
-            path = "${config.sops.defaultSymlinkPath}/NPM_PUBLISH_TOKEN";
+        secrets = {
+            NPM_PUBLISH_TOKEN.path = "${config.sops.defaultSymlinkPath}/NPM_PUBLISH_TOKEN";
+            POSTGRES_DEV_JDBC_ERD_URL = {
+                key = "DATABASE/POSTGRES/DEV/JDBC_ERD_USER_PASS_URL";
+                path = "${config.sops.defaultSymlinkPath}/POSTGRES_DEV_JDBC_ERD_URL";
+            };
         };
     };
 
