@@ -168,6 +168,9 @@
             **Making Changes**: You should never commit code. When you feel code is ready to be staged present a summary of your changes for review, I will ultimately decide if they should be committed and what the message will say. Conventional commits messages must be used.
 
             Never mention yourself, claude code, or any AI tool in commit messages. Never use `co-authored-by` or similar tags/signoffs.
+
+            ## Secrets management
+            I use sops-nix to manage secrets. You are never permitted to decrypt that file, or read any environment variables set using the sops decrpyt functionality in my nix-shells 
         '';
     };
 
