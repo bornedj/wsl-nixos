@@ -66,6 +66,36 @@ in
                         configurationType = "URL";
                     };
                 };
+                postgres-qa-corr = {
+                    provider = "postgresql";
+                    driver = "postgres-jdbc";
+                    name = "Postgres QA Correspondence";
+                    save-password = true;
+                    configuration = {
+                        url = "jdbc:postgresql://${config.sops.placeholder.POSTGRES_QA_HOST}${corrSchema}?user=${config.sops.placeholder.POSTGRES_USERNAME}&password=${config.sops.placeholder.POSTGRES_PASSWORD}";
+                        configurationType = "URL";
+                    };
+                };
+                postgres-stage-corr = {
+                    provider = "postgresql";
+                    driver = "postgres-jdbc";
+                    name = "Postgres Stage Correspondence";
+                    save-password = true;
+                    configuration = {
+                        url = "jdbc:postgresql://${config.sops.placeholder.POSTGRES_STAGE_HOST}${corrSchema}?user=${config.sops.placeholder.POSTGRES_USERNAME}&password=${config.sops.placeholder.POSTGRES_PASSWORD}";
+                        configurationType = "URL";
+                    };
+                };
+                postgres-prod-corr = {
+                    provider = "postgresql";
+                    driver = "postgres-jdbc";
+                    name = "Postgres PROD Correspondence";
+                    save-password = true;
+                    configuration = {
+                        url = "jdbc:postgresql://${config.sops.placeholder.POSTGRES_PROD_HOST}${corrSchema}?user=${config.sops.placeholder.POSTGRES_USERNAME}&password=${config.sops.placeholder.POSTGRES_PASSWORD}";
+                        configurationType = "URL";
+                    };
+                };
             };
         };
     };
