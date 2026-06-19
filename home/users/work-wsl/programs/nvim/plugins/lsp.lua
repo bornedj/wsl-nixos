@@ -16,8 +16,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
         vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
         vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float({ source = true }) end, opts)
-        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
-        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
+        vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, opts)
+        vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, opts)
         vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- server configurations
-vim.lsp.enable('ts_ls', {})
+vim.lsp.enable('ts_ls')
 -- bug with eslint running in html
 -- need to do some debugging on who eslint finds the workspace root
 vim.lsp.config('eslint', {
@@ -39,7 +39,7 @@ vim.lsp.config('eslint', {
     filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
 })
 vim.lsp.enable('eslint')
-vim.lsp.enable('rust_analyzer', {
+vim.lsp.config('rust_analyzer', {
     settings = {
         cargo = {
             buildScripts = {
@@ -48,6 +48,7 @@ vim.lsp.enable('rust_analyzer', {
         }
     }
 })
+vim.lsp.enable('rust_analyzer')
 vim.lsp.config('lua_ls', {
     on_init = function(client)
         if client.workspace_folders then
@@ -88,21 +89,21 @@ vim.lsp.config('lua_ls', {
     },
 })
 vim.lsp.enable('lua_ls')
-vim.lsp.enable('angularls', {})
-vim.lsp.enable('cssls', {})
+vim.lsp.enable('angularls')
+vim.lsp.enable('cssls')
 vim.lsp.config('emmet_ls', {
     --  current file types plus xml
     filetypes = { "astro", "css", "eruby", "html", "htmlangular", "htmldjango", "javascriptreact", "less", "pug", "sass", "scss", "svelte", "templ", "typescriptreact", "vue", "xml" }
 })
-vim.lsp.enable('emmet_ls', {})
-vim.lsp.enable('jsonls', {})
-vim.lsp.enable('html', {})
-vim.lsp.enable('pyright', {})
-vim.lsp.enable('bashls', {})
-vim.lsp.enable('yamlls', {})
-vim.lsp.enable('dockerls', {})
-vim.lsp.enable('nixd', {})
-vim.lsp.enable('terraformls', {})
+vim.lsp.enable('emmet_ls')
+vim.lsp.enable('jsonls')
+vim.lsp.enable('html')
+vim.lsp.enable('pyright')
+vim.lsp.enable('bashls')
+vim.lsp.enable('yamlls')
+vim.lsp.enable('dockerls')
+vim.lsp.enable('nixd')
+vim.lsp.enable('terraformls')
 
 -- java crap (maliciously)
 local root_markers = { 'gradlew', '.git', 'mvnw', 'pom' }
@@ -192,7 +193,7 @@ vim.lsp.config('jdtls', {
         end)
     end
 })
-vim.lsp.enable('jdtls', {})
+vim.lsp.enable('jdtls')
 
 -- completion setup
 local cmp = require('cmp')
