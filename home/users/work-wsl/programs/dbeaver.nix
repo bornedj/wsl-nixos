@@ -96,6 +96,48 @@ in
                         configurationType = "URL";
                     };
                 };
+
+                # oracle
+                oracle-isubm-dev = {
+                    provider = "oracle";
+                    driver = "oracle_thin";
+                    name = "Oracle ISUBM Dev";
+                    save-password = true;
+                    configuration = {
+                        url = "jdbc:oracle:thin:${config.sops.placeholder.ORACLE_USERNAME}/${config.sops.placeholder.ORACLE_PASSWORD}@${config.sops.placeholder.ORACLE_ISUBM_DEV_HOST}";
+                        configurationType = "URL";
+                    };
+                };
+                oracle-isubm-qa = {
+                    provider = "oracle";
+                    driver = "oracle_thin";
+                    name = "Oracle ISUBM QA";
+                    save-password = true;
+                    configuration = {
+                        url = "jdbc:oracle:thin:${config.sops.placeholder.ORACLE_USERNAME}/${config.sops.placeholder.ORACLE_PASSWORD}@${config.sops.placeholder.ORACLE_ISUBM_QA_HOST}";
+                        configurationType = "URL";
+                    };
+                };
+                oracle-isubm-stage = {
+                    provider = "oracle";
+                    driver = "oracle_thin";
+                    name = "Oracle ISUBM STAGE";
+                    save-password = true;
+                    configuration = {
+                        url = "jdbc:oracle:thin:${config.sops.placeholder.ORACLE_USERNAME}/${config.sops.placeholder.ORACLE_PASSWORD}@${config.sops.placeholder.ORACLE_ISUBM_STAGE_HOST}";
+                        configurationType = "URL";
+                    };
+                };
+                oracle-isubm-prod = {
+                    provider = "oracle";
+                    driver = "oracle_thin";
+                    name = "Oracle ISUBM PROD";
+                    save-password = true;
+                    configuration = {
+                        url = "jdbc:oracle:thin:${config.sops.placeholder.ORACLE_USERNAME}/${config.sops.placeholder.ORACLE_PASSWORD}@${config.sops.placeholder.ORACLE_ISUBM_PROD_HOST}";
+                        configurationType = "URL";
+                    };
+                };
             };
         };
     };

@@ -26,6 +26,15 @@
                 path = "${config.sops.defaultSymlinkPath}/POSTGRES_PROD_HOST";
             };
 
+            POSTGRES_USERNAME = {
+                key = "DATABASE/POSTGRES/USERNAME";
+                path = "${config.sops.defaultSymlinkPath}/POSTGRES_USERNAME";
+            };
+            POSTGRES_PASSWORD = {
+                key = "DATABASE/POSTGRES/PASSWORD";
+                path = "${config.sops.defaultSymlinkPath}/POSTGRES_PASSWORD";
+            };
+
             ORACLE_PASSWORD = {
                 key = "DATABASE/PASSWORD";
                 path = "${config.sops.defaultSymlinkPath}/ORACLE_PASSWORD";
@@ -35,13 +44,21 @@
                 path = "${config.sops.defaultSymlinkPath}/ORACLE_USERNAME";
             };
 
-            POSTGRES_USERNAME = {
-                key = "DATABASE/POSTGRES/USERNAME";
-                path = "${config.sops.defaultSymlinkPath}/POSTGRES_USERNAME";
+            ORACLE_ISUBM_DEV_HOST = {
+                key = "DATABASE/DEV/ISUBM_URL";
+                path = "${config.sops.defaultSymlinkPath}/ORACLE_ISUBM_DEV_HOST";
             };
-            POSTGRES_PASSWORD = {
-                key = "DATABASE/POSTGRES/PASSWORD";
-                path = "${config.sops.defaultSymlinkPath}/POSTGRES_PASSWORD";
+            ORACLE_ISUBM_QA_HOST = {
+                key = "DATABASE/QA/ISUBM_URL";
+                path = "${config.sops.defaultSymlinkPath}/ORACLE_ISUBM_QA_HOST";
+            };
+            ORACLE_ISUBM_STAGE_HOST = {
+                key = "DATABASE/STAGE/ISUBM_URL";
+                path = "${config.sops.defaultSymlinkPath}/ORACLE_ISUBM_STAGE_HOST";
+            };
+            ORACLE_ISUBM_PROD_HOST = {
+                key = "DATABASE/PROD/ISUBM_URL";
+                path = "${config.sops.defaultSymlinkPath}/ORACLE_ISUBM_PROD_HOST";
             };
         };
     };
