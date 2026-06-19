@@ -1,55 +1,44 @@
--- I need to find out if I can do this after boot with the env variables in my sops store
--- doing it this way for ease now
+local function read_secret(path)
+    local f = io.open(path, "r")
+    if not f then return "" end
+    local val = f:read("*l")
+    f:close()
+    return val or ""
+end
+
+local pg_user = read_secret(secret.postgresUsername):gsub("@", "%%40")
+local pg_pass = read_secret(secret.postgresPassword)
+local ora_user = read_secret(secret.oracleUsername)
+local ora_pass = read_secret(secret.oraclePassword)
+
+local pg_dev = read_secret(secret.postgresDevHost)
+local pg_qa = read_secret(secret.postgresQaHost)
+local pg_stage = read_secret(secret.postgresStageHost)
+local pg_prod = read_secret(secret.postgresProdHost)
+
+local function pg_url(host, db)
+    return "postgresql://" .. pg_user .. ":" .. pg_pass .. "@" .. host .. db
+end
+
+local function ora_url(host)
+    return "oracle:" .. ora_user .. "/" .. ora_pass .. "@//" .. host
+end
+
 vim.g.dbs = {
-    {
-        name = "postgres-dev-erd",
-        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.DEV.ERD_USER_PASS_URL | tr -d '\"\n'")
-    },
-    {
-        name = "postgres-qa-erd",
-        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.QA.ERD_USER_PASS_URL | tr -d '\"\n'")
-    },
-    {
-        name = "postgres-stage-erd",
-        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.STAGE.ERD_USER_PASS_URL | tr -d '\"\n'")
-    },
-    {
-        name = "postgres-prod-erd",
-        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.PROD.ERD_USER_PASS_URL | tr -d '\"\n'")
-    },
-    {
-        name = "postgres-dev-corr",
-        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.DEV.CORR_USER_PASS_URL | tr -d '\"\n'")
-    },
-    {
-        name = "postgres-qa-corr",
-        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.QA.CORR_USER_PASS_URL | tr -d '\"\n'")
-    },
-    {
-        name = "postgres-stage-corr",
-        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.STAGE.CORR_USER_PASS_URL | tr -d '\"\n'")
-    },
-    {
-        name = "postgres-prod-corr",
-        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.POSTGRES.PROD.CORR_USER_PASS_URL | tr -d '\"\n'")
-    },
-    {
-        name = "ISBUM-dev",
-        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.DEV.ISUBM_USER_PASS_URL | tr -d '\"\n'")
-    },
-    {
-        name = "ISBUM-qa",
-        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.QA.ISUBM_USER_PASS_URL | tr -d '\"\n'")
-    },
-    {
-        name = "ISBUM-stage",
-        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.STAGE.ISUBM_USER_PASS_URL | tr -d '\"\n'")
-    },
-    {
-        name = "ISBUM-prod",
-        url = vim.fn.system("sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq .DATABASE.PROD.ISUBM_USER_PASS_URL | tr -d '\"\n'")
-    },
+    { name = "postgres-dev-erd", url = pg_url(pg_dev, "dbktentref") },
+    { name = "postgres-qa-erd", url = pg_url(pg_qa, "dbktentref") },
+    { name = "postgres-stage-erd", url = pg_url(pg_stage, "dbktentref") },
+    { name = "postgres-prod-erd", url = pg_url(pg_prod, "dbktentref") },
+    { name = "postgres-dev-corr", url = pg_url(pg_dev, "dbktentcorr") },
+    { name = "postgres-qa-corr", url = pg_url(pg_qa, "dbktentcorr") },
+    { name = "postgres-stage-corr", url = pg_url(pg_stage, "dbktentcorr") },
+    { name = "postgres-prod-corr", url = pg_url(pg_prod, "dbktentcorr") },
+    { name = "ISUBM-dev", url = ora_url(read_secret(secret.isubmDevHost)) },
+    { name = "ISUBM-qa", url = ora_url(read_secret(secret.isubmQaHost)) },
+    { name = "ISUBM-stage", url = ora_url(read_secret(secret.isubmStageHost)) },
+    { name = "ISUBM-prod", url = ora_url(read_secret(secret.isubmProdHost)) },
 }
+
 vim.g.db_ui_winwidth = 50
 vim.g.db_ui_trim = 40
 

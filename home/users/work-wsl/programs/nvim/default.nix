@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let 
     vim-dadbod-ui-local = pkgs.callPackage ../../../../pkgs/vim-dadbod-local/vim-dadbod-ui.nix {};
@@ -55,7 +55,23 @@ in
             {
                 plugin = vim-dadbod-ui-local;
                 type = "lua";
-                config = builtins.readFile ./plugins/dadbod.lua;
+                config = ''
+                    local secret = {
+                        postgresPassword = "${config.sops.secrets.POSTGRES_PASSWORD.path}",
+                        postgresUsername = "${config.sops.secrets.POSTGRES_USERNAME.path}",
+                        oraclePassword = "${config.sops.secrets.ORACLE_PASSWORD.path}",
+                        oracleUsername = "${config.sops.secrets.ORACLE_USERNAME.path}",
+                        isubmDevHost = "${config.sops.secrets.ORACLE_ISUBM_DEV_HOST.path}",
+                        isubmQaHost = "${config.sops.secrets.ORACLE_ISUBM_QA_HOST.path}",
+                        isubmStageHost = "${config.sops.secrets.ORACLE_ISUBM_STAGE_HOST.path}",
+                        isubmProdHost = "${config.sops.secrets.ORACLE_ISUBM_PROD_HOST.path}",
+                        postgresDevHost = "${config.sops.secrets.POSTGRES_DEV_HOST.path}",
+                        postgresQaHost = "${config.sops.secrets.POSTGRES_QA_HOST.path}",
+                        postgresStageHost = "${config.sops.secrets.POSTGRES_STAGE_HOST.path}",
+                        postgresProdHost = "${config.sops.secrets.POSTGRES_PROD_HOST.path}",
+                    }
+                    ${builtins.readFile ./plugins/dadbod.lua}
+                '';
             }
             {
                 plugin = claude-code-nvim;
