@@ -7,6 +7,7 @@
         ./programs/nvim
         ./programs/dbeaver.nix
         ./programs/sops.nix
+        ./shells
         inputs.sops-nix.homeManagerModules.sops
     ];
 
