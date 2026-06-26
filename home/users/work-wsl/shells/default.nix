@@ -8,7 +8,7 @@ in
         source = ./dms.nix;
         force = true;
     };
-    home.file."${gitlabPath}document-and-notes-coexistence-service/shell.nix" = {
+    home.file."${gitlabPath}document-and-note-coexistence-service/shell.nix" = {
         source = ./danms-coexistence.nix;
         force = true;
     };
