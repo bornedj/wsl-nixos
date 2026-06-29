@@ -30,6 +30,7 @@ pkgs.mkShellNoCC {
     export DBKTDOCMGMT_CREDENTIALS_USERNAME="$(sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq '.AUTOMATED_PIPELINE_TESTING.DATABASE.DBKTDOCMGMT.USERNAME' | tr -d '"')"
     export DBKTDOCMGMT_CREDENTIALS_PASSWORD="$(sops decrypt /home/nixos/dotfiles/home/secrets/kinsale.yaml | yq '.AUTOMATED_PIPELINE_TESTING.DATABASE.DBKTDOCMGMT.PASSWORD' | tr -d '"')"
 
+    alias rm_s3_dev="aws s3 rm s3://transit-file-cabinet-scanned-us-east-1-dev/submission/99999999/ --recursive"
     alias dms_run_dev="mvn -Dspring.datasource.secondary.username=$dms_legacy_db_username -Dspring.datasource.secondary.password=$dms_legacy_db_password -Dspring.datasource.primary.password=$dms_db_password -Dspring.datasource.primary.username=$dms_db_username -Dapplication.submission.file-cabinet.username=$smb_sa_username -Dapplication.submission.file-cabinet.password=$smb_sa_password -Dtenantid=$tenantid -P dev --log-file run-logs.log"
     alias dms_run_local="mvn -Dspring.datasource.secondary.username=$dms_legacy_db_username -Dspring.datasource.secondary.password=$dms_legacy_db_password -Dspring.datasource.primary.password=$dms_db_password -Dspring.datasource.primary.username=$dms_db_username -Dapplication.submission.file-cabinet.username=$smb_sa_username -Dapplication.submission.file-cabinet.password=$smb_sa_password -Dtenantid=$tenantid -P local --log-file run-logs.log"
 
