@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(jdtls:*)",
+      "Bash(nix flake show:*)",
+      "Bash(nix-instantiate:*)",
+      "Bash(done)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
